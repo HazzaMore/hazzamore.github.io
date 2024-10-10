@@ -1,38 +1,53 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+/*========= VARIABLES =========*/
+:root{
+  --overlay-colour: #e34b33;
+  --BlackGrey-colour: #111;
+  --default-transition: 0.5s;
+  --default-shadow: 5px 10px 8px rgba(0, 0, 0, 0.3);
+  --website_blue: #0ef;
+  --z-modal: 99999;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/*========= APPLY TO ALL =========*/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  list-style: none;
+  scroll-behavior: smooth;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* ============= Animation background ========= */
+.background {
+  background: linear-gradient(132deg, #ff3700, #00e1ff, #ff3700);
+  background-size: 400% 400%;
+  animation: Gradient 10s ease infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  object-fit: cover;
+  z-index: -3;
+  transition: 0s;
+  padding:0;
+  margin:0px;
+}
+
+/* Animate Background*/
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  50% {
+    background-position: 100% 50%;
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    background-position: 0% 50%;
   }
 }

@@ -1,0 +1,6 @@
+export {default as Homepage} from './homepage/homepage'
+export {default as AboutMe} from './aboutme/aboutme'
+export {default as CV} from './cv/cv'
+export {default as Error} from './error/error'
+export {default as Contact} from './contact/contact'
+export {default as Portfolio} from './portfolio/portfolio'
