@@ -2,7 +2,7 @@ import './App.css';
 import { Navbar } from './components/common/navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {Homepage, AboutMe, Portfolio, CV, Contact, Error} from './pages/index';
-import {useMenuToggle, getScrollbarWidth} from './components/common/useMenuToggle';
+import {useMenuToggle} from './components/common/useMenuToggle';
 import { createContext } from 'react';
 
 
