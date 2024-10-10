@@ -2,7 +2,7 @@ import './App.css';
 import { Navbar } from './components/common/navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {Homepage, AboutMe, Portfolio, CV, Contact, Error} from './pages/index';
-import useMenuToggle from './components/common/useMenuToggle';
+import {useMenuToggle, getScrollbarWidth} from './components/common/useMenuToggle';
 import { createContext } from 'react';
 
 
@@ -10,21 +10,23 @@ import { createContext } from 'react';
 interface MenuContextProps {
   menuActive: boolean;
   handleToggle: () => void;
-
+  offsetWidth: number;
 }
 
 export const MenuContext = createContext<MenuContextProps>({
   menuActive: false,
   handleToggle: () => {},
+  offsetWidth: 0
 });
 
 function App() {
 
   const { menuActive, handleToggle } = useMenuToggle();
+  const offsetWidth = getScrollbarWidth();
 
   return (
     <div className="Showcase">
-      <MenuContext.Provider value={{menuActive, handleToggle}}>
+      <MenuContext.Provider value={{menuActive, handleToggle, offsetWidth}}>
         <Router>
         <Navbar />
         <Routes>

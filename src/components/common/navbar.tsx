@@ -6,10 +6,10 @@ import { MenuContext } from "../../App";
 
 export const Navbar = () => {
 
-  const { menuActive, handleToggle } = useContext(MenuContext);
+  const { menuActive, handleToggle, offsetWidth } = useContext(MenuContext);
 
   return (
-    <NavbarWrapper menuActive={menuActive}>
+    <NavbarWrapper menuActive={menuActive} offsetWidth={offsetWidth}>
       <nav className="navbar" data-aos="slide-down">
         <Link to={"/"} className="logo">
           <img src={require('../images/Logos/MyLogos/HH_Logo_white.png')} width="80px" alt="" />
@@ -32,11 +32,11 @@ export const Navbar = () => {
 
 // export default menuActive;
 
-const NavbarWrapper = styled.div<{ menuActive: boolean }>`
+const NavbarWrapper = styled.div<{ menuActive: boolean, offsetWidth: number }>`
 
 
   .toggle {
-    position: relative;
+    position: sticky;
     width: 60px;
     height: 60px;
     background: url(${props => props.menuActive ? 'https://i.ibb.co/rt3HybH/close.png' : 'https://i.ibb.co/HrfVRcx/menu.png'});
@@ -46,20 +46,20 @@ const NavbarWrapper = styled.div<{ menuActive: boolean }>`
     cursor: pointer;
     z-index: 3000; /* Ensure toggle is always on top */
     right: ${props => props.menuActive ? '300px' : '0'};
-    transition: right 0.3s ease;
+    transition: 0.3s ease;
   }
 
   .menu {
     position: fixed;
     top: 0;
-    right: ${props => props.menuActive ? '0' : '-300px'};
+    right: 0;
     width: 300px;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: ${props => props.menuActive ? '2000' : '-2000'};
-    transition: right 0.3s ease;
+    transition: 0.3s ease;
   }
 
   nav {
