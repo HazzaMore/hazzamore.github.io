@@ -28,9 +28,11 @@ const AboutMe = () => {
             <br/> <br/> My coding and software experience includes (hover for name):</p>
             <AppCodeExperience />
           </div>
+        </section>
+
+        <section>
           
         </section>
-        
         <div></div>
       </div>
 
