@@ -61,7 +61,7 @@ export default Homepage;
 const HomepageWrapper = styled.div<{ menuActive: boolean }>`
 
   .TransformLeft {
-    transform: translateX(${ props => props.menuActive ? '-300px' : '0'});
+    transform: translateX(${ props => props.menuActive ? '300px' : '0'});
     transition: 0.3s ease;
   }
 

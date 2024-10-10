@@ -10,23 +10,20 @@ import { createContext } from 'react';
 interface MenuContextProps {
   menuActive: boolean;
   handleToggle: () => void;
-  offsetWidth: number;
 }
 
 export const MenuContext = createContext<MenuContextProps>({
   menuActive: false,
   handleToggle: () => {},
-  offsetWidth: 0
 });
 
 function App() {
 
   const { menuActive, handleToggle } = useMenuToggle();
-  const offsetWidth = getScrollbarWidth();
 
   return (
     <div className="Showcase">
-      <MenuContext.Provider value={{menuActive, handleToggle, offsetWidth}}>
+      <MenuContext.Provider value={{menuActive, handleToggle}}>
         <Router>
         <Navbar />
         <Routes>

@@ -6,15 +6,15 @@ import { MenuContext } from "../../App";
 
 export const Navbar = () => {
 
-  const { menuActive, handleToggle, offsetWidth } = useContext(MenuContext);
+  const { menuActive, handleToggle } = useContext(MenuContext);
 
   return (
-    <NavbarWrapper menuActive={menuActive} offsetWidth={offsetWidth}>
+    <NavbarWrapper menuActive={menuActive}>
       <nav className="navbar" data-aos="slide-down">
+      <div className="toggle" onClick={handleToggle} />
         <Link to={"/"} className="logo">
           <img src={require('../images/Logos/MyLogos/HH_Logo_white.png')} width="80px" alt="" />
         </Link>
-        <div className="toggle" onClick={handleToggle} />
       </nav>
 
       <div className="menu">
@@ -32,7 +32,7 @@ export const Navbar = () => {
 
 // export default menuActive;
 
-const NavbarWrapper = styled.div<{ menuActive: boolean, offsetWidth: number }>`
+const NavbarWrapper = styled.div<{ menuActive: boolean }>`
 
 
   .toggle {
@@ -45,14 +45,14 @@ const NavbarWrapper = styled.div<{ menuActive: boolean, offsetWidth: number }>`
     background-position: center;
     cursor: pointer;
     z-index: 3000; /* Ensure toggle is always on top */
-    right: ${props => props.menuActive ? '300px' : '0'};
+    left: ${props => props.menuActive ? '300px' : '0'};
     transition: 0.3s ease;
   }
 
   .menu {
     position: fixed;
     top: 0;
-    right: 0;
+    left: 0;
     width: 300px;
     height: 100%;
     display: flex;

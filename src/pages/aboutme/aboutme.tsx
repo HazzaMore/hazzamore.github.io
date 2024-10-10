@@ -8,11 +8,11 @@ import { AppCodeExperience } from "../../components/common/app-code-experience";
 
 const AboutMe = () => {
 
-  const { menuActive, offsetWidth } = useContext(MenuContext);
+  const { menuActive} = useContext(MenuContext);
 
   return (
     
-    <AboutmeWrapper menuActive={menuActive} offsetWidth={offsetWidth}>
+    <AboutmeWrapper menuActive={menuActive}>
       <div className="background TransformLeft"/>
       <div className="aboutme">
         <section className="name_profession TransformLeft" data-aos="fade-right" data-aos-delay="500">
@@ -38,9 +38,9 @@ const AboutMe = () => {
 
 export default AboutMe;
 
-const AboutmeWrapper = styled.div<{ menuActive: boolean, offsetWidth: number }>`
+const AboutmeWrapper = styled.div<{ menuActive: boolean}>`
   .TransformLeft {
-    transform: translateX(${ props => props.menuActive ? `calc(-300px + ${props.offsetWidth}px)` : '0'});
+    transform: translateX(${ props => props.menuActive ? `300px` : '0'});
     transition: 0.3s ease;
   }
 
