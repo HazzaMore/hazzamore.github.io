@@ -46,6 +46,7 @@ const NavbarWrapper = styled.div<{ menuActive: boolean }>`
     cursor: pointer;
     z-index: 3000; /* Ensure toggle is always on top */
     left: ${props => props.menuActive ? '300px' : '0'};
+    // filter: ${props => props.menuActive ? 'brightness(0%)' : 'brightness(0%) invert(100%)'};
     transition: 0.3s ease;
   }
 
