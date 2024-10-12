@@ -11,10 +11,10 @@ export const Navbar = () => {
   return (
     <NavbarWrapper menuActive={menuActive}>
       <nav className="navbar" data-aos="slide-down">
+      <div className="toggle" onClick={handleToggle} />
         <Link to={"/"} className="logo">
           <img src={require('../images/Logos/MyLogos/HH_Logo_white.png')} width="80px" alt="" />
         </Link>
-        <div className="toggle" onClick={handleToggle} />
       </nav>
 
       <div className="menu">
@@ -36,7 +36,7 @@ const NavbarWrapper = styled.div<{ menuActive: boolean }>`
 
 
   .toggle {
-    position: relative;
+    position: sticky;
     width: 60px;
     height: 60px;
     background: url(${props => props.menuActive ? 'https://i.ibb.co/rt3HybH/close.png' : 'https://i.ibb.co/HrfVRcx/menu.png'});
@@ -45,21 +45,22 @@ const NavbarWrapper = styled.div<{ menuActive: boolean }>`
     background-position: center;
     cursor: pointer;
     z-index: 3000; /* Ensure toggle is always on top */
-    right: ${props => props.menuActive ? '300px' : '0'};
-    transition: right 0.3s ease;
+    left: ${props => props.menuActive ? '300px' : '0'};
+    // filter: ${props => props.menuActive ? 'brightness(0%)' : 'brightness(0%) invert(100%)'};
+    transition: 0.3s ease;
   }
 
   .menu {
     position: fixed;
     top: 0;
-    right: ${props => props.menuActive ? '0' : '-300px'};
+    left: 0;
     width: 300px;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: ${props => props.menuActive ? '2000' : '-2000'};
-    transition: right 0.3s ease;
+    transition: 0.3s ease;
   }
 
   nav {
