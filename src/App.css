@@ -35,8 +35,9 @@
   object-fit: cover;
   z-index: -3;
   transition: 0s;
-  padding: 0;
-  margin: 0;
+  /* Below is included in apply to all */
+  /* padding: 0;
+  margin: 0; */
 }
 
 .background::after {
@@ -49,6 +50,12 @@
 	z-index: -2;
 	background: rgba(0, 0, 0, 0.6);
 	box-shadow: inset 10px 10px 200px #000000, inset -10px -10px 200px #000000;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Animate Background*/

@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { useContext } from "react";
 import { MenuContext } from "../../App";
 import { BsLinkedin, BsYoutube, BsInstagram, BsTwitterX  } from "react-icons/bs";
+import { background_video } from "../../components/videos/videoslist";
 
 const Homepage = () => {
 
@@ -12,14 +13,14 @@ const Homepage = () => {
   return (
     <HomepageWrapper menuActive={menuActive}>
       <video
-        className="BackgroundVideo TransformLeft"
-        src={require('../../components/videos/Gradient_loop.mp4')}
+        className="BackgroundVideo TransformRight"
+        src={background_video}
         playsInline
         muted
         loop
         autoPlay
         />
-      <div className="TransformLeft">
+      <div className="TransformRight">
         <section className="text" data-aos="fade">
         <h2>Where Cloud <br/> Development </h2> 
         <h3 data-aos="fade" data-aos-delay="1000">Meets Creativity</h3>
@@ -28,7 +29,7 @@ const Homepage = () => {
         </section>  
       </div>
       <footer>
-        <ul className="social TransformLeft">
+        <ul className="social TransformRight">
           <li className="social_icon">
             <Link to="//www.youtube.com/@HazzaMore" >
               <BsYoutube size = { 70 }/>
@@ -60,7 +61,7 @@ export default Homepage;
 // ${ props => props.menuActive ? '0' : '300px'}
 const HomepageWrapper = styled.div<{ menuActive: boolean }>`
 
-  .TransformLeft {
+  .TransformRight {
     transform: translateX(${ props => props.menuActive ? '300px' : '0'});
     transition: 0.3s ease;
   }

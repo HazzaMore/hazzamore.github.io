@@ -18,7 +18,6 @@ import azure_icon from "./ExternalLogos/azure-icon.svg"
 import aws_icon from "./ExternalLogos/aws-icon.svg"
 import gcp_icon from "./ExternalLogos/gcp-icon.svg"
 
-
 import adobe_photoshop_icon from "./ExternalLogos/adobe-photoshop-icon.svg"
 import adobe_premiere_pro_icon from "./ExternalLogos/adobe-premiere-pro-icon.svg"
 import adobe_after_effects_icon from "./ExternalLogos/adobe-after-effects-icon.svg"
@@ -27,6 +26,12 @@ import blender_icon from "./ExternalLogos/blender-icon.svg"
 import unreal_engine_icon from "./ExternalLogos/unreal-engine-icon.svg"
 import obs_icon from "./ExternalLogos/obs-icon.svg"
 import discord_icon from "./ExternalLogos/discord-icon.svg"
+
+import jlr_logo from "./ExternalLogos/JaguarLandRover.png"
+import kubrick_logo from "./ExternalLogos/Kubrick_Logo.png"
+import unique_team_building from "./ExternalLogos/UniqueTeamBuilding.png"
+import twofrontteeth from "./ExternalLogos/TwoFrontTeeth.svg"
+
 
 const codingIcons = [
   python_icon,
@@ -60,6 +65,7 @@ const programIcons = [
   discord_icon
 ]
 
+
 export {
   python_icon,
   terraform_icon,
@@ -79,6 +85,7 @@ export {
   azure_icon,
   aws_icon,
   gcp_icon,
+  
   adobe_photoshop_icon,
   adobe_premiere_pro_icon,
   adobe_after_effects_icon,
@@ -87,6 +94,12 @@ export {
   unreal_engine_icon,
   obs_icon,
   discord_icon,
+
+  jlr_logo,
+  kubrick_logo,
+  unique_team_building,
+  twofrontteeth,
+
   codingIcons,
   programIcons
 }
