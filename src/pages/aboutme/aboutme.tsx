@@ -6,16 +6,16 @@ import { MenuContext } from "../../App";
 import { AppCodeExperience } from "../../components/common/app-code-experience";
 import JobContainer from "./job-container";
 import { jlr_video, photo_editing_video } from "../../components/videos/videoslist";
-import { Kubrick_description, Unique_Team_Building_description } from "./company_description";
+import { Kubrick_description, Twofrontteeth_description, Unique_Team_Building_description } from "./company_description";
 import {profile_image, unique_tb_banner} from "../../components/images/mainimages"
 
 const AboutMe = () => {
 
-  const { menuActive} = useContext(MenuContext);
+  const { menuactive} = useContext(MenuContext);
 
   return (
     
-    <AboutmeWrapper menuActive={menuActive}>
+    <AboutmeWrapper menuactive={menuactive}>
       <div className="background TransformRight"/>
       <div className="aboutme TransformRight">
         <section className="name_profession" data-aos="fade-right" data-aos-delay="500">
@@ -51,7 +51,7 @@ const AboutMe = () => {
           company="Two Front Teeth Photography, Cheltenham"
           role="Photo Editor & Framer"
           media={{src: photo_editing_video}}
-          content={<Unique_Team_Building_description/>}
+          content={<Twofrontteeth_description/>}
           />
         </section>
         <div></div>
@@ -64,9 +64,9 @@ const AboutMe = () => {
 
 export default AboutMe;
 
-const AboutmeWrapper = styled.div<{ menuActive: boolean}>`
+const AboutmeWrapper = styled.div<{ menuactive: boolean}>`
   .TransformRight {
-    transform: translateX(${ props => props.menuActive ? `300px` : '0'});
+    transform: translateX(${ props => props.menuactive ? `300px` : '0'});
     transition: 0.3s ease;
   }
 

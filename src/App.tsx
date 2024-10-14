@@ -8,22 +8,22 @@ import { createContext } from 'react';
 
 
 interface MenuContextProps {
-  menuActive: boolean;
+  menuactive: boolean;
   handleToggle: () => void;
 }
 
 export const MenuContext = createContext<MenuContextProps>({
-  menuActive: false,
+  menuactive: false,
   handleToggle: () => {},
 });
 
 function App() {
 
-  const { menuActive, handleToggle } = useMenuToggle();
+  const { menuactive, handleToggle } = useMenuToggle();
 
   return (
     <div className="Showcase">
-      <MenuContext.Provider value={{menuActive, handleToggle}}>
+      <MenuContext.Provider value={{menuactive, handleToggle}}>
         <Router>
         <Navbar />
         <Routes>

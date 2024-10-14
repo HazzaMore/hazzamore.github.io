@@ -6,11 +6,11 @@ import styled from "styled-components";
 
 const Contact = () => {
 
-  const { menuActive} = useContext(MenuContext);
+  const { menuactive} = useContext(MenuContext);
 
   return (
     
-    <ContactWrapper menuActive={menuActive}>
+    <ContactWrapper menuactive={menuactive}>
       <div className="background TransformRight"/>
       <section className="text TransformRight" data-aos="fade">
         <h1>
@@ -26,10 +26,10 @@ const Contact = () => {
 
 export default Contact;
 
-  const ContactWrapper = styled.div<{ menuActive: boolean}>`
+  const ContactWrapper = styled.div<{ menuactive: boolean}>`
 
   .TransformRight {
-    transform: translateX(${ props => props.menuActive ? `300px` : '0'});
+    transform: translateX(${ props => props.menuactive ? `300px` : '0'});
     transition: 0.3s ease;
   }
 

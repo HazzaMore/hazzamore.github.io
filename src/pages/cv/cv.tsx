@@ -6,11 +6,11 @@ import styled from "styled-components";
 
 const CV = () => {
 
-  const { menuActive} = useContext(MenuContext);
+  const { menuactive} = useContext(MenuContext);
 
   return (
     
-    <CVWrapper menuActive={menuActive}>
+    <CVWrapper menuactive={menuactive}>
       <div className="background TransformRight"/>
       <section className="text TransformRight" data-aos="fade">
         <h1>
@@ -26,10 +26,10 @@ const CV = () => {
 
 export default CV;
 
-  const CVWrapper = styled.div<{ menuActive: boolean}>`
+  const CVWrapper = styled.div<{ menuactive: boolean}>`
 
   .TransformRight {
-    transform: translateX(${ props => props.menuActive ? `300px` : '0'});
+    transform: translateX(${ props => props.menuactive ? `300px` : '0'});
     transition: 0.3s ease;
   }
 
