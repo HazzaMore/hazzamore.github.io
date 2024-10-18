@@ -39,7 +39,7 @@ export default PortfolioCard;
 
 const PortfolioCardWrapper = styled.div<{ menuactive: boolean }>`
   // Additional Variables
-  --card-border-radius: 28px;
+  --card-border-radius: 12px;
 
   .card {
     display: inline-block;

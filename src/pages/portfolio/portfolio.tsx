@@ -17,7 +17,7 @@ const Portfolio = () => {
         <section className="text TransformRight" data-aos="fade">
           <h1>My Portfolio</h1>
         </section>
-        <section>
+        <section className="TransformRight">
           <MenuChoiceWrapper>
             <div className="choice-type-container">
               <div className="choice-type-tabs">
