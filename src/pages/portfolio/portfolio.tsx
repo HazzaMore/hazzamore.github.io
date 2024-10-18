@@ -72,7 +72,7 @@ const PortfolioWrapper = styled.div<{ menuactive: boolean }>`
     text-transform: uppercase;
     transition: var(--default-transition);
     margin-top: 3rem;
-    margin: 3rem;
+    margin-bottom: 2rem;
   }
 
   .Portfolio_container {
@@ -90,6 +90,8 @@ const PortfolioWrapper = styled.div<{ menuactive: boolean }>`
   @media screen and (max-width: 1600px) {
     .Portfolio_container {
       grid-template-columns: repeat(3, 1fr);
+    }
+    .Portfolio_container, h1 {
       margin-left: 2rem;
       margin-right: 2rem;
     }
@@ -98,6 +100,8 @@ const PortfolioWrapper = styled.div<{ menuactive: boolean }>`
   @media screen and (max-width: 1300px) {
     .Portfolio_container {
       grid-template-columns: repeat(2, 1fr);
+    }
+    .Portfolio_container, h1 {
       margin-left: 1rem;
       margin-right: 1rem;
     }
@@ -106,6 +110,8 @@ const PortfolioWrapper = styled.div<{ menuactive: boolean }>`
   @media screen and (max-width: 900px) {
     .Portfolio_container {
       grid-template-columns: repeat(1, 1fr);
+    }
+    .Portfolio_container, h1 {
       margin-left: 0rem;
       margin-right: 0rem;
     }
