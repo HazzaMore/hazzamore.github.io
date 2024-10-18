@@ -3,8 +3,8 @@ import { useContext } from "react";
 import { MenuContext } from "../../App";
 import styled from "styled-components";
 import PortfolioCard from "./card";
-import { indesign_icon } from "../../components/images/Logos/logoimages";
-import { AnniversaryBook } from "../../components/images/PortfolioImages/portfolioimages";
+import { adobe_photoshop_icon, adobe_premiere_pro_icon, blender_icon, html_icon, indesign_icon, python_icon, ubuntu_icon } from "../../components/images/Logos/logoimages";
+import { AnniversaryBook, BlenderWork, CodeAutomation, EmoteArtworkPreview, LivBevanWork, MoreLoserfruit, Pi5, WebsitePreview } from "../../components/images/PortfolioImages/portfolioimages";
 import { AnniversaryBookPopup } from "./popups";
 
 //TO DO: Add the option to tab between code related and creative projects
@@ -20,14 +20,68 @@ const Portfolio = () => {
           <h1>My Portfolio</h1>
         </section>
         <section className="Portfolio_container TransformRight" data-aos="fade">
-          <PortfolioCard
-            cardtitle="Loserfruit Anniversary Book 2024"
-            mainpicture={AnniversaryBook}
-            software="InDesign"
-            softwareicon={indesign_icon}
-            // popup={<AnniversaryBookPopup/>}
-            // delay={amount}
-          />
+          {[
+            {
+              cardtitle: "Loserfruit Anniversary Book 2024",
+              mainpicture: AnniversaryBook,
+              software: "InDesign",
+              softwareicon: indesign_icon,
+            },
+            {
+              cardtitle: "MoreLoserfruit Channel Editing",
+              mainpicture: MoreLoserfruit,
+              software: "Premiere Pro",
+              softwareicon: adobe_premiere_pro_icon,
+            },
+            {
+              cardtitle: "Loserfruit Twitch channel emotes and badges",
+              mainpicture: EmoteArtworkPreview,
+              software: "Photoshop",
+              softwareicon: adobe_photoshop_icon,
+            },
+            {
+              cardtitle: "Work for Unique Team Building, Australia",
+              mainpicture: BlenderWork,
+              software: "Blender",
+              softwareicon: blender_icon,
+            },
+            {
+              cardtitle: "TikTok Reaction for Liv Bevan",
+              mainpicture: LivBevanWork,
+              software: "Premiere Pro",
+              softwareicon: adobe_premiere_pro_icon,
+            },
+            {
+              cardtitle: "Website Design",
+              mainpicture: WebsitePreview,
+              software: "Html & Css",
+              softwareicon: html_icon,
+            },
+            {
+              cardtitle: "Raspberry Pi 5 Projects",
+              mainpicture: Pi5,
+              software: "Ubuntu",
+              softwareicon: ubuntu_icon,
+            },
+            {
+              cardtitle: "Automation Projects",
+              mainpicture: CodeAutomation,
+              software: "Python",
+              softwareicon: python_icon,
+            },
+          ].map((card, index) => (
+            <PortfolioCard
+              key={index}
+              cardnumber={index + 1}
+              animation_delay={1000 + index * 200}
+              cardtitle={card.cardtitle}
+              mainpicture={card.mainpicture}
+              software={card.software}
+              softwareicon={card.softwareicon}
+              // popup={<AnniversaryBookPopup/>}
+              // delay={amount}
+            />
+          ))}
         </section>
       </div>
     </PortfolioWrapper>

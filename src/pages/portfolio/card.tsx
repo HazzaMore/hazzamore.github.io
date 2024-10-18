@@ -2,6 +2,8 @@ import "../../App.css";
 import styled from "styled-components";
 
 interface PortfolioCardProps {
+  cardnumber: number;
+  animation_delay: number;
   cardtitle: string;
   // popup: React.ReactNode;
   mainpicture: string;
@@ -16,7 +18,7 @@ export const PortfolioCard = (props: PortfolioCardProps) => {
         className="card"
         data-aos="fade-right"
         data-aos-anchor="portfolio"
-        data-aos-delay="1000"
+        data-aos-delay={props.animation_delay}
       >
         <a className="portfolio_btn">
           <img className="portfolio_img" src={props.mainpicture} />
