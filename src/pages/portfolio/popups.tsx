@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { BookPhoto } from "../../components/images/PortfolioImages/portfolioimages";
 
 
-const AnniversaryBook = (props) => {
+const AnniversaryBookDetails = (props: { cardnumber: number; }) => {
   return (
     <PopupWrapper>
       <div id={`popup${props.cardnumber}`} className="popup_container">
@@ -40,7 +40,7 @@ const AnniversaryBook = (props) => {
 }
 
 
-export default AnniversaryBook;
+export default AnniversaryBookDetails;
 
 const PopupWrapper = styled.div`
 

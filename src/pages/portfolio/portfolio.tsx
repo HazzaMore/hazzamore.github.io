@@ -1,16 +1,14 @@
 import "../../App.css";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { MenuContext } from "../../App";
 import styled from "styled-components";
-import PortfolioCard from "./card";
-import { adobe_photoshop_icon, adobe_premiere_pro_icon, blender_icon, html_icon, indesign_icon, python_icon, ubuntu_icon } from "../../components/images/Logos/logoimages";
-import { AnniversaryBook, BlenderWork, CodeAutomation, EmoteArtworkPreview, LivBevanWork, MoreLoserfruit, Pi5, WebsitePreview } from "../../components/images/PortfolioImages/portfolioimages";
-import { AnniversaryBookPopup } from "./popups";
-
-//TO DO: Add the option to tab between code related and creative projects
+// import AnniversaryBookDetails from "./popups";
+import { CardList } from "./card-list";
 
 const Portfolio = () => {
   const { menuactive } = useContext(MenuContext);
+  const MenuHeaders = ["All", "Code", "Creative"];
+  const [menuChoice, setMenuChoice] = useState<string>(MenuHeaders[0]);
 
   return (
     <PortfolioWrapper menuactive={menuactive}>
@@ -19,69 +17,27 @@ const Portfolio = () => {
         <section className="text TransformRight" data-aos="fade">
           <h1>My Portfolio</h1>
         </section>
+        <section>
+          <MenuChoiceWrapper>
+            <div className="choice-type-container">
+              <div className="choice-type-tabs">
+                {MenuHeaders.map((label, index) => (
+                  <button
+                    key={index}
+                    className={`choice-type-tab ${
+                      menuChoice === label ? "active" : ""
+                    }`}
+                    onClick={() => setMenuChoice(label)}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </MenuChoiceWrapper>
+        </section>
         <section className="Portfolio_container TransformRight" data-aos="fade">
-          {[
-            {
-              cardtitle: "Loserfruit Anniversary Book 2024",
-              mainpicture: AnniversaryBook,
-              software: "InDesign",
-              softwareicon: indesign_icon,
-            },
-            {
-              cardtitle: "MoreLoserfruit Channel Editing",
-              mainpicture: MoreLoserfruit,
-              software: "Premiere Pro",
-              softwareicon: adobe_premiere_pro_icon,
-            },
-            {
-              cardtitle: "Loserfruit Twitch channel emotes and badges",
-              mainpicture: EmoteArtworkPreview,
-              software: "Photoshop",
-              softwareicon: adobe_photoshop_icon,
-            },
-            {
-              cardtitle: "Work for Unique Team Building, Australia",
-              mainpicture: BlenderWork,
-              software: "Blender",
-              softwareicon: blender_icon,
-            },
-            {
-              cardtitle: "TikTok Reaction for Liv Bevan",
-              mainpicture: LivBevanWork,
-              software: "Premiere Pro",
-              softwareicon: adobe_premiere_pro_icon,
-            },
-            {
-              cardtitle: "Website Design",
-              mainpicture: WebsitePreview,
-              software: "Html & Css",
-              softwareicon: html_icon,
-            },
-            {
-              cardtitle: "Raspberry Pi 5 Projects",
-              mainpicture: Pi5,
-              software: "Ubuntu",
-              softwareicon: ubuntu_icon,
-            },
-            {
-              cardtitle: "Automation Projects",
-              mainpicture: CodeAutomation,
-              software: "Python",
-              softwareicon: python_icon,
-            },
-          ].map((card, index) => (
-            <PortfolioCard
-              key={index}
-              cardnumber={index + 1}
-              animation_delay={1000 + index * 200}
-              cardtitle={card.cardtitle}
-              mainpicture={card.mainpicture}
-              software={card.software}
-              softwareicon={card.softwareicon}
-              // popup={<AnniversaryBookPopup/>}
-              // delay={amount}
-            />
-          ))}
+          <CardList filter={menuChoice} />
         </section>
       </div>
     </PortfolioWrapper>
@@ -125,7 +81,7 @@ const PortfolioWrapper = styled.div<{ menuactive: boolean }>`
     max-width: 100%;
     align-items: center;
     gap: 2.3rem;
-    margin-top: 4.2rem;
+    margin-top: 2rem;
     margin-left: 3rem;
     margin-right: 3rem;
     z-index: 4;
@@ -153,5 +109,51 @@ const PortfolioWrapper = styled.div<{ menuactive: boolean }>`
       margin-left: 0rem;
       margin-right: 0rem;
     }
+  }
+`;
+
+const MenuChoiceWrapper = styled.div`
+
+  display: flex;
+  justify-content: center;
+
+  .choice-type-tabs {
+    display: flex;
+    position: relative;
+    background-color: #fff;
+    box-shadow: 0 0 1px 0 rgba(24, 94, 224, 0.15),
+      0 6px 12px 0 rgba(24, 94, 224, 0.15);
+    padding: 0.75rem;
+    border-radius: 99px;
+  }
+
+  .choice-type-tabs * {
+    z-index: 2;
+  }
+
+  .choice-type-container input[type="radio"] {
+    display: none;
+  }
+
+  .choice-type-tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    padding: 0 15px; /* Added padding to increase width based on text */
+    font-size: 0.8rem;
+    color: black;
+    font-weight: 500;
+    border-radius: 99px;
+    cursor: pointer;
+    transition: color 0.15s ease-in, background-color 0.25s ease-out;
+    background-color: transparent;
+    margin: 0 10px; /* Added margin to increase padding between labels */
+    border: none; /* Removed border */
+  }
+
+  .choice-type-tab.active {
+    color: var(--overlay-colour);
+    text-shadow: 0 0 10px var(--overlay-colour);
   }
 `;
