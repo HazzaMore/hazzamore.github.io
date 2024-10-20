@@ -96,6 +96,6 @@ const NavbarWrapper = styled.div<{ menuactive: boolean }>`
 
   .menu ul li a:hover {
     color: var(--overlay-colour);
-    transition: 0.3s;
+    transition: 0.3s ease-in-out;
   }
 `;
