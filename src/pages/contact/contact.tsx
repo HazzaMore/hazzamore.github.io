@@ -1,35 +1,32 @@
-import "../../App.css"
+import "../../App.css";
 import { useContext } from "react";
 import { MenuContext } from "../../App";
 import styled from "styled-components";
 
-
 const Contact = () => {
-
-  const { menuActive} = useContext(MenuContext);
+  const { menuactive } = useContext(MenuContext);
 
   return (
-    
-    <ContactWrapper menuActive={menuActive}>
-      <div className="background TransformRight"/>
-      <section className="text TransformRight" data-aos="fade">
-        <h1>
-          Contact Me
-          <br/>
-          Sorry this page is under construction
-        </h1>
-      </section>
-
+    <ContactWrapper menuactive={menuactive}>
+      <div className="default_container">
+        <div className="background TransformRight" />
+        <section className="text TransformRight" data-aos="fade">
+          <h1>
+            Contact Me
+            <br />
+            Sorry this page is under construction
+          </h1>
+        </section>
+      </div>
     </ContactWrapper>
-  )
-}
+  );
+};
 
 export default Contact;
 
-  const ContactWrapper = styled.div<{ menuActive: boolean}>`
-
+const ContactWrapper = styled.div<{ menuactive: boolean }>`
   .TransformRight {
-    transform: translateX(${ props => props.menuActive ? `300px` : '0'});
+    transform: translateX(${(props) => (props.menuactive ? `300px` : "0")});
     transition: 0.3s ease;
   }
 
@@ -44,7 +41,7 @@ export default Contact;
   .text {
     vertical-align: middle;
     z-index: 10;
-    padding-top: 40vh;
+    padding-top: 25vh;
     padding-left: 10%;
   }
 `;

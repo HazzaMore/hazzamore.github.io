@@ -1,35 +1,33 @@
-import "../../App.css"
+import "../../App.css";
 import { useContext } from "react";
 import { MenuContext } from "../../App";
 import styled from "styled-components";
 
-
 const CV = () => {
-
-  const { menuActive} = useContext(MenuContext);
+  const { menuactive } = useContext(MenuContext);
 
   return (
-    
-    <CVWrapper menuActive={menuActive}>
-      <div className="background TransformRight"/>
-      <section className="text TransformRight" data-aos="fade">
-        <h1>
-          CV
-          <br/>
-          Sorry this page is under construction
-        </h1>
-      </section>
-
+    <CVWrapper menuactive={menuactive}>
+      <div className="background TransformRight" />
+      <div className="default_container">
+        <section className="text TransformRight" data-aos="fade">
+          <h1>
+            CV
+            <br />
+            Sorry this page is under construction
+          </h1>
+        </section>
+      </div>
     </CVWrapper>
-  )
-}
+  );
+};
 
 export default CV;
 
-  const CVWrapper = styled.div<{ menuActive: boolean}>`
+const CVWrapper = styled.div<{ menuactive: boolean }>`
 
   .TransformRight {
-    transform: translateX(${ props => props.menuActive ? `300px` : '0'});
+    transform: translateX(${(props) => (props.menuactive ? `300px` : "0")});
     transition: 0.3s ease;
   }
 
@@ -44,7 +42,7 @@ export default CV;
   .text {
     vertical-align: middle;
     z-index: 10;
-    padding-top: 40vh;
+    padding-top: 25vh;
     padding-left: 10%;
   }
 `;

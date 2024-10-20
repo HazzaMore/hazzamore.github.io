@@ -17,6 +17,7 @@ import azure_pipelines_icon from "./ExternalLogos/azure-pipelines-icon.svg"
 import azure_icon from "./ExternalLogos/azure-icon.svg"
 import aws_icon from "./ExternalLogos/aws-icon.svg"
 import gcp_icon from "./ExternalLogos/gcp-icon.svg"
+import ubuntu_icon from "./ExternalLogos/ubuntu-icon.svg"
 
 import adobe_photoshop_icon from "./ExternalLogos/adobe-photoshop-icon.svg"
 import adobe_premiere_pro_icon from "./ExternalLogos/adobe-premiere-pro-icon.svg"
@@ -51,7 +52,8 @@ const codingIcons = [
   azure_pipelines_icon,
   azure_icon,
   aws_icon,
-  gcp_icon
+  gcp_icon,
+  ubuntu_icon
 ]
 
 const programIcons = [
@@ -85,6 +87,7 @@ export {
   azure_icon,
   aws_icon,
   gcp_icon,
+  ubuntu_icon,
   
   adobe_photoshop_icon,
   adobe_premiere_pro_icon,

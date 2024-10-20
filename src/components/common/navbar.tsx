@@ -6,10 +6,10 @@ import { MenuContext } from "../../App";
 
 export const Navbar = () => {
 
-  const { menuActive, handleToggle } = useContext(MenuContext);
+  const { menuactive, handleToggle } = useContext(MenuContext);
 
   return (
-    <NavbarWrapper menuActive={menuActive}>
+    <NavbarWrapper menuactive={menuactive}>
       <nav className="navbar" data-aos="slide-down">
       <div className="toggle" onClick={handleToggle} />
         <Link to={"/"} className="logo">
@@ -30,23 +30,23 @@ export const Navbar = () => {
   );
 };
 
-// export default menuActive;
+// export default menuactive;
 
-const NavbarWrapper = styled.div<{ menuActive: boolean }>`
+const NavbarWrapper = styled.div<{ menuactive: boolean }>`
 
 
   .toggle {
     position: sticky;
     width: 60px;
     height: 60px;
-    background: url(${props => props.menuActive ? 'https://i.ibb.co/rt3HybH/close.png' : 'https://i.ibb.co/HrfVRcx/menu.png'});
+    background: url(${props => props.menuactive ? 'https://i.ibb.co/rt3HybH/close.png' : 'https://i.ibb.co/HrfVRcx/menu.png'});
     background-repeat: no-repeat;
-    background-size: ${props => props.menuActive ? '25px' : '30px'};
+    background-size: ${props => props.menuactive ? '25px' : '30px'};
     background-position: center;
     cursor: pointer;
     z-index: 3000; /* Ensure toggle is always on top */
-    left: ${props => props.menuActive ? '300px' : '0'};
-    // filter: ${props => props.menuActive ? 'brightness(0%)' : 'brightness(0%) invert(100%)'};
+    left: ${props => props.menuactive ? '300px' : '0'};
+    // filter: ${props => props.menuactive ? 'brightness(0%)' : 'brightness(0%) invert(100%)'};
     transition: 0.3s ease;
   }
 
@@ -59,7 +59,7 @@ const NavbarWrapper = styled.div<{ menuActive: boolean }>`
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: ${props => props.menuActive ? '2000' : '-2000'};
+    z-index: ${props => props.menuactive ? '2000' : '-2000'};
     transition: 0.3s ease;
   }
 
@@ -96,6 +96,6 @@ const NavbarWrapper = styled.div<{ menuActive: boolean }>`
 
   .menu ul li a:hover {
     color: var(--overlay-colour);
-    transition: 0.3s;
+    transition: 0.3s ease-in-out;
   }
 `;

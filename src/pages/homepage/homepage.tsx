@@ -8,10 +8,10 @@ import { background_video } from "../../components/videos/videoslist";
 
 const Homepage = () => {
 
-  const { menuActive } = useContext(MenuContext);
+  const { menuactive } = useContext(MenuContext);
 
   return (
-    <HomepageWrapper menuActive={menuActive}>
+    <HomepageWrapper menuactive={menuactive}>
       <video
         className="BackgroundVideo TransformRight"
         src={background_video}
@@ -58,11 +58,11 @@ const Homepage = () => {
 
 export default Homepage;
 
-// ${ props => props.menuActive ? '0' : '300px'}
-const HomepageWrapper = styled.div<{ menuActive: boolean }>`
+// ${ props => props.menuactive ? '0' : '300px'}
+const HomepageWrapper = styled.div<{ menuactive: boolean }>`
 
   .TransformRight {
-    transform: translateX(${ props => props.menuActive ? '300px' : '0'});
+    transform: translateX(${ props => props.menuactive ? '300px' : '0'});
     transition: 0.3s ease;
   }
 

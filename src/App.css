@@ -4,7 +4,7 @@
 :root{
   --overlay-colour: #e34b33;
   --BlackGrey-colour: #111;
-  --default-transition: 0.5s;
+  --default-transition: 0.5s ease-in-out;
   --default-shadow: 5px 10px 8px rgba(0, 0, 0, 0.3);
   --website_blue: #0ef;
   --z-modal: 99999;
@@ -56,6 +56,23 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.stop_x_scolling {
+  overflow-x: hidden;
+}
+
+.default_container {
+  position: absolute;
+  right: 0;
+  width: 100%;
+  min-height: 100vh;
+  padding: 5%;
+  margin-top: 60px;
+  align-items: center;
+  transition: var(--default-transition);
+  z-index: 2;
+  overflow-x: hidden;
 }
 
 /* Animate Background*/

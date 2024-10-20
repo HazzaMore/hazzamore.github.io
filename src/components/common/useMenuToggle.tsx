@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
 const useMenuToggle = () => {
-  const [menuActive, setMenuActive] = useState(false);
+  const [menuactive, setmenuactive] = useState(false);
 
   const handleToggle = () => {
-    setMenuActive(!menuActive);
+    setmenuactive(!menuactive);
   };
 
-  return { menuActive, handleToggle };
+  return { menuactive, handleToggle };
 };
 
 const getScrollbarWidth = (): number => {
