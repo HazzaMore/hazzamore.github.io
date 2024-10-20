@@ -94,6 +94,25 @@ export const Popups = [
 
 export const PopupWrapper = styled.div`
 
+  .popup_container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1999;
+    transition: var(--default-transition);
+  }
+  .popup_container {
+  backdrop-filter: blur(5px);
+  transition: var(--default-transition);
+
+  }
+
   .popup {
     position: fixed;
     top: 50%; 
@@ -104,23 +123,18 @@ export const PopupWrapper = styled.div`
     z-index: 2000;
     background-color: #fff;
     border-bottom: 6px solid var(--website_blue);
-    // overflow: auto;
-    // color: black;
     // transition: opacity 0.5s ease, visibility 0s 0.5s;
     // -webkit-transition: opacity 0.5s ease;
     overflow-y: auto; /* Allow scrolling if content exceeds max-height */
   }
 
-  .popup_container {
+  .popup_contents {
     display: inline-block;
-    font-size: 1em;
-    padding: 10px 30px;
+    padding: 10px 20px;
     text-transform: uppercase;
     text-decoration: none;
     font-weight: 500;
     margin-top: 10px;
-    color: var(--BlackGrey-colour);
-    letter-spacing: 2px;
     transition: var(--default-transition);
   }
 

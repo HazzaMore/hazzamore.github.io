@@ -93,24 +93,25 @@ const Portfolio = () => {
       </div>
       {popupToggle && (
         <PopupWrapper>
-          <div className="blur"/>
-          <div className="popup">
-            <div className="popup_header">
-              <RxCross2 onClick={() => setPopupToggle(false)}/>
-            </div>
-            <div className="popup_container">
-              {popupContent.map((popup) => {
-                const matchingPopup = Popups.find(
-                  (p) => p.cardtitle === popup.cardtitle
-                );
-                return (
-                  <div key={popup.cardtitle}>
-                    {matchingPopup
-                      ? matchingPopup.content
-                      : "Content not found"}
-                  </div>
-                );
-              })}
+          <div className="popup_container">
+            <div className="popup">
+              <div className="popup_header">
+                <RxCross2 onClick={() => setPopupToggle(false)} />
+              </div>
+              <div className="popup_contents">
+                {popupContent.map((popup) => {
+                  const matchingPopup = Popups.find(
+                    (p) => p.cardtitle === popup.cardtitle
+                  );
+                  return (
+                    <div key={popup.cardtitle}>
+                      {matchingPopup
+                        ? matchingPopup.content
+                        : "Content not found"}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </PopupWrapper>
