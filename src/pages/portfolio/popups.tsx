@@ -195,7 +195,7 @@ export const Popups = [
 ];
 
 export const PopupWrapper = styled.div`
-  .popup_container {
+  .popup_behind {
     position: fixed;
     top: 0;
     left: 0;
@@ -208,7 +208,7 @@ export const PopupWrapper = styled.div`
     z-index: 1999;
     transition: var(--default-transition);
   }
-  .popup_container {
+  .popup_behind {
     backdrop-filter: blur(5px);
     transition: var(--default-transition);
   }
@@ -222,9 +222,9 @@ export const PopupWrapper = styled.div`
     height: 80%;
     z-index: 2000;
     background-color: #fff;
-    border-bottom: 6px solid var(--website_blue);
-    // transition: opacity 0.5s ease, visibility 0s 0.5s;
-    // -webkit-transition: opacity 0.5s ease;
+    border-radius: 10px;
+    transition: opacity 0.5s ease, visibility 0s 0.5s;
+    -webkit-transition: opacity 0.5s ease;
     overflow-y: auto; /* Allow scrolling if content exceeds max-height */
   }
 

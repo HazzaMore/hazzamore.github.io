@@ -18,17 +18,16 @@ const Portfolio = () => {
       ? Cards
       : Cards.filter((Card) => Card.type === menuChoice);
 
-
   const [popupContent, setPopupContent] = useState<any[]>([]);
   const [popupToggle, setPopupToggle] = useState<boolean>(false);
 
   const openPopup = (selected_card: any) => {
     setPopupContent([selected_card]);
     setPopupToggle(true);
-  }
+  };
   const closePopup = () => {
     setPopupToggle(false);
-  }
+  };
 
 
   return (
@@ -94,7 +93,7 @@ const Portfolio = () => {
       </div>
       {popupToggle && (
         <PopupWrapper>
-          <div className="popup_container" onClick={closePopup}>
+          <div className="popup_behind" onClick={closePopup}>
             <div className="popup">
               <div className="popup_header">
                 <RxCross2 onClick={closePopup} />
@@ -195,12 +194,6 @@ const PortfolioWrapper = styled.div<{ menuactive: boolean }>`
       margin-left: 0rem;
       margin-right: 0rem;
     }
-  }
-
-  /* ============= Blur background ========= */
-
-  .blur {
-    backdrop-filter: blur(5px);
   }
 `;
 
