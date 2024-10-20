@@ -285,6 +285,20 @@ export const PopupWrapper = styled.div`
     color: var(--website_blue);
   }
 
+  .popup_contents a {
+    display: flex;
+    justify-content: center;
+    background: #e8e8e8;
+    margin-top: 30px;
+    padding: 10px;
+    color: var(--BlackGrey-colour);
+  }
+  
+  .popup_contents a:hover {
+    background-color: var(--website_blue);
+    transition: var(--default-transition);
+  }
+
   @media screen and (max-width: 900px) {
     .popup {
       width: 90%;
