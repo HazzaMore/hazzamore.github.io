@@ -5,7 +5,6 @@ interface PortfolioCardProps {
   cardnumber: number;
   animation_delay: number;
   cardtitle: string;
-  // popup: React.ReactNode;
   mainpicture: string;
   software: string;
   softwareicon: string;
@@ -13,7 +12,7 @@ interface PortfolioCardProps {
 
 export const PortfolioCard = (props: PortfolioCardProps) => {
   return (
-    <PortfolioCardWrapper menuactive={true}>
+    <PortfolioCardWrapper>
       <article
         className="card"
         data-aos="fade-right"
@@ -28,7 +27,6 @@ export const PortfolioCard = (props: PortfolioCardProps) => {
               <img src={props.softwareicon} />
             </i>
           </div>
-          <h3>{props.cardtitle}</h3>
         </a>
       </article>
     </PortfolioCardWrapper>
@@ -37,7 +35,7 @@ export const PortfolioCard = (props: PortfolioCardProps) => {
 
 export default PortfolioCard;
 
-const PortfolioCardWrapper = styled.div<{ menuactive: boolean }>`
+export const PortfolioCardWrapper = styled.div`
   // Additional Variables
   --card-border-radius: 12px;
 
@@ -47,7 +45,7 @@ const PortfolioCardWrapper = styled.div<{ menuactive: boolean }>`
     border-radius: var(--card-border-radius);
     border: 2px solid transparent;
     box-shadow: var(--default-shadow);
-    transition: all 0.50s ease;
+    transition: all 0.5s ease;
     width: 100%; /* Ensure the card takes the full width of its container */
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
     margin: 10px 0; /* Add margin to space out the cards */
@@ -86,6 +84,16 @@ const PortfolioCardWrapper = styled.div<{ menuactive: boolean }>`
     transition: transform 0.5s ease-in-out;
   }
 
+  .card:hover {
+    box-shadow: 0 0 2px var(--website_blue), 0 0 5px var(--website_blue),
+      0 0 5px var(--website_blue), 0 0 20px var(--website_blue),
+      0 0 20px var(--website_blue);
+  }
+
+  .portfolio_btn {
+    cursor: pointer;
+  }
+
   .card .software,
   .card h3 {
     /* top, R, bottom, L */
@@ -106,5 +114,12 @@ const PortfolioCardWrapper = styled.div<{ menuactive: boolean }>`
     margin-bottom: 10px;
     line-height: 1.4;
     color: #dedede;
+  }
+
+  @media screen and (max-width: 900px) {
+    .popup {
+      width: 90%;
+      /* Ensure the scrollbar is visible */
+    }
   }
 `;

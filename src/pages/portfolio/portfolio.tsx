@@ -1,18 +1,38 @@
 import "../../App.css";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MenuContext } from "../../App";
 import styled from "styled-components";
-// import AnniversaryBookDetails from "./popups";
-import { CardList } from "./card-list";
+
+import { Cards } from "./data";
+import { PortfolioCardWrapper } from "./card-layout";
+import { Popups, PopupWrapper } from "./popups";
+
+import { RxCross2 } from "react-icons/rx";
 
 const Portfolio = () => {
   const { menuactive } = useContext(MenuContext);
   const MenuHeaders = ["All", "Code", "Creative"];
   const [menuChoice, setMenuChoice] = useState<string>(MenuHeaders[0]);
+  const FilteredCards =
+    menuChoice === "All"
+      ? Cards
+      : Cards.filter((Card) => Card.type === menuChoice);
+
+  const [popupContent, setPopupContent] = useState<any[]>([]);
+  const [popupToggle, setPopupToggle] = useState<boolean>(false);
+  const [styling, setStyling] = useState<any>(null);
+
+  const changecontent = (selected_card: any) => {
+    setPopupContent([selected_card]);
+    setPopupToggle(!popupToggle);
+    if (styling === null) {
+      setStyling({ position: "fixed" });
+    }
+  };
 
   return (
     <PortfolioWrapper menuactive={menuactive}>
-      <div className="portfolio" id="blur">
+      <div className="portfolio">
         <div className="background TransformRight" />
         <section className="text TransformRight" data-aos="fade">
           <h1>My Portfolio</h1>
@@ -37,9 +57,64 @@ const Portfolio = () => {
           </MenuChoiceWrapper>
         </section>
         <section className="Portfolio_container TransformRight" data-aos="fade">
-          <CardList filter={menuChoice} />
+          {FilteredCards.map((selected_card, index) => (
+            <PortfolioCardWrapper key={index}>
+              <article
+                className="card"
+                data-aos="fade-right"
+                data-aos-anchor="portfolio"
+                data-aos-delay={1000 + index * 200}
+              >
+                <a
+                  className="portfolio_btn"
+                  onClick={() => {
+                    console.log(selected_card);
+                    changecontent(selected_card);
+                  }}
+                >
+                  <img
+                    className="portfolio_img"
+                    src={selected_card.mainpicture}
+                  />
+                  <div className="software">
+                    <h2>{selected_card.software}</h2>
+                    <i className="software-icon">
+                      <img src={selected_card.softwareicon} />
+                    </i>
+                  </div>
+                  <div>
+                    <h3>{selected_card.cardtitle}</h3>
+                  </div>
+                </a>
+              </article>
+            </PortfolioCardWrapper>
+          ))}
         </section>
       </div>
+      {popupToggle && (
+        <PopupWrapper>
+          <div className="blur"/>
+          <div className="popup">
+            <div className="popup_header">
+              <RxCross2 onClick={() => setPopupToggle(false)}/>
+            </div>
+            <div className="popup_container">
+              {popupContent.map((popup) => {
+                const matchingPopup = Popups.find(
+                  (p) => p.cardtitle === popup.cardtitle
+                );
+                return (
+                  <div key={popup.cardtitle}>
+                    {matchingPopup
+                      ? matchingPopup.content
+                      : "Content not found"}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </PopupWrapper>
+      )}
     </PortfolioWrapper>
   );
 };
@@ -91,7 +166,8 @@ const PortfolioWrapper = styled.div<{ menuactive: boolean }>`
     .Portfolio_container {
       grid-template-columns: repeat(3, 1fr);
     }
-    .Portfolio_container, h1 {
+    .Portfolio_container,
+    h1 {
       margin-left: 2rem;
       margin-right: 2rem;
     }
@@ -101,7 +177,8 @@ const PortfolioWrapper = styled.div<{ menuactive: boolean }>`
     .Portfolio_container {
       grid-template-columns: repeat(2, 1fr);
     }
-    .Portfolio_container, h1 {
+    .Portfolio_container,
+    h1 {
       margin-left: 1rem;
       margin-right: 1rem;
     }
@@ -111,15 +188,21 @@ const PortfolioWrapper = styled.div<{ menuactive: boolean }>`
     .Portfolio_container {
       grid-template-columns: repeat(1, 1fr);
     }
-    .Portfolio_container, h1 {
+    .Portfolio_container,
+    h1 {
       margin-left: 0rem;
       margin-right: 0rem;
     }
   }
+
+  /* ============= Blur background ========= */
+
+  .blur {
+    backdrop-filter: blur(5px);
+  }
 `;
 
 const MenuChoiceWrapper = styled.div`
-
   display: flex;
   justify-content: center;
 

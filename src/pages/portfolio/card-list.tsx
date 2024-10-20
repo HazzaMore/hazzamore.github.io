@@ -23,7 +23,7 @@ interface CardListProps {
   filter: string;
 }
 
-export const CardList = ({ filter }: CardListProps) => {
+const CardList = ({ filter }: CardListProps) => {
   const cards = [
     {
       cardtitle: "Loserfruit Anniversary Book 2024",
@@ -95,8 +95,8 @@ export const CardList = ({ filter }: CardListProps) => {
           cardtitle={card.cardtitle}
           mainpicture={card.mainpicture}
           software={card.software}
-          softwareicon={card.softwareicon}
-        />
+          softwareicon={card.softwareicon}     
+          />
       ))}
     </>
   );
