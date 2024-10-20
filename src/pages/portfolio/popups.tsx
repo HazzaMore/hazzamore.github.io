@@ -3,8 +3,10 @@ import styled from "styled-components";
 import {
   BookPhoto,
   MoreLoserfruitBestVideos,
+  Emotes,
+  OtherBadges,
+  LivBevanVideos,
 } from "../../components/images/PortfolioImages/portfolioimages";
-
 
 export const Popups = [
   {
@@ -68,14 +70,7 @@ export const Popups = [
           </li>
           <iframe
             className="popup-iframe"
-            width="560"
-            height="315"
             src="https://www.youtube.com/embed/eRfF9-sE0J4?si=yHmiJoaBRSEDU22H"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
           ></iframe>
           <a href="https://www.youtube.com/@MoreLoserfruit" target="_blank">
             Open MoreLoserfruit YouTube Channel
@@ -90,10 +85,116 @@ export const Popups = [
       </>
     ),
   },
+  {
+    cardtitle: "Loserfruit Twitch channel emotes and badges",
+    content: (
+      <>
+        <h2 className="popup-title">Loserfruit Twitch channel:</h2>
+        <img className="popup-img" src={Emotes} />
+        <img className="popup-img" src={OtherBadges} />
+        <ul className="popup-contents">
+          <li className="popup-list_item">
+            Emotes are used on her Twitch Channel as a perk of being a paid
+            member, with holiday themed variants during those occasions
+          </li>
+          <li className="popup-list_item">
+            Badges are the images next to usernames when a paid member has kept
+            their subscription going for a given number of months or years
+          </li>
+          <li className="popup-list_item">
+            The Fruit Box PVP artwork was created as an icon reprosenting an
+            ability within the custom fortnite creative game 'FruitBox PVP'
+          </li>
+          <li className="popup-list_item">
+            All artworks were created with different layers within photoshop,
+            using a graphic tablet
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    cardtitle: "Work for Unique Team Building, Australia",
+    content: (
+      <>
+        <h2 className="popup-title">Work for Unique Team Building</h2>
+        <ul className="popup-contents">
+          <li className="popup-list_item">
+            Information about this project TBC
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    cardtitle: "TikTok Reaction for Liv Bevan",
+    content: (
+      <>
+        <h2 className="popup-title">Tiktok reaction video for Liv Bevan</h2>
+        <img className="popup-img" src={LivBevanVideos} />
+        <ul className="popup-contents">
+          <li className="popup-list_item">
+            Liv Bevan is another popular content creator known best for their
+            YouTube videos and relation to 'The Boys', an australian irl content
+            driven YouTube channel.
+          </li>
+          <li className="popup-list_item">
+            I edited a few highly edited videos for them for tiktok reaction
+            based content.
+          </li>
+          <iframe
+            className="popup-iframe"
+            src="https://www.youtube.com/embed/2ArHOrZ1JcI?si=pOt2Zcfg16rmUyzO"
+          ></iframe>
+          <a href="https://www.youtube.com/@bivlev" target="_blank">
+            Open Liv Bevan YouTube Channel
+          </a>
+        </ul>
+      </>
+    ),
+  },
+  {
+    cardtitle: "Website Design",
+    content: (
+      <>
+        <h2 className="popup-title">Website Design</h2>
+        <ul className="popup-contents">
+          <li className="popup-list_item">
+            Information about this project TBC
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    cardtitle: "Raspberry Pi 5 Projects",
+    content: (
+      <>
+        <h2 className="popup-title">Raspberry Pi Project</h2>
+        <ul className="popup-contents">
+          <li className="popup-list_item">
+            Information about this project TBC
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    cardtitle: "Automation Projects",
+    content: (
+      <>
+        <h2 className="popup-title">Automation Project</h2>
+        <ul className="popup-contents">
+          <li className="popup-list_item">
+            Information about this project TBC
+          </li>
+        </ul>
+      </>
+    ),
+  },
 ];
 
 export const PopupWrapper = styled.div`
-
   .popup_container {
     position: fixed;
     top: 0;
@@ -108,14 +209,13 @@ export const PopupWrapper = styled.div`
     transition: var(--default-transition);
   }
   .popup_container {
-  backdrop-filter: blur(5px);
-  transition: var(--default-transition);
-
+    backdrop-filter: blur(5px);
+    transition: var(--default-transition);
   }
 
   .popup {
     position: fixed;
-    top: 50%; 
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80%;
@@ -146,9 +246,6 @@ export const PopupWrapper = styled.div`
     cursor: pointer;
   }
 
-  .popup_header:hover {
-  }
-
   .popup-img {
     display: block;
     margin-left: auto;
@@ -163,6 +260,8 @@ export const PopupWrapper = styled.div`
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
+    width: 560px;
+    height: 315px;
   }
 
   .popup-title {

@@ -18,17 +18,18 @@ const Portfolio = () => {
       ? Cards
       : Cards.filter((Card) => Card.type === menuChoice);
 
+
   const [popupContent, setPopupContent] = useState<any[]>([]);
   const [popupToggle, setPopupToggle] = useState<boolean>(false);
-  const [styling, setStyling] = useState<any>(null);
 
-  const changecontent = (selected_card: any) => {
+  const openPopup = (selected_card: any) => {
     setPopupContent([selected_card]);
-    setPopupToggle(!popupToggle);
-    if (styling === null) {
-      setStyling({ position: "fixed" });
-    }
-  };
+    setPopupToggle(true);
+  }
+  const closePopup = () => {
+    setPopupToggle(false);
+  }
+
 
   return (
     <PortfolioWrapper menuactive={menuactive}>
@@ -69,7 +70,7 @@ const Portfolio = () => {
                   className="portfolio_btn"
                   onClick={() => {
                     console.log(selected_card);
-                    changecontent(selected_card);
+                    openPopup(selected_card);
                   }}
                 >
                   <img
@@ -93,10 +94,10 @@ const Portfolio = () => {
       </div>
       {popupToggle && (
         <PopupWrapper>
-          <div className="popup_container">
+          <div className="popup_container" onClick={closePopup}>
             <div className="popup">
               <div className="popup_header">
-                <RxCross2 onClick={() => setPopupToggle(false)} />
+                <RxCross2 onClick={closePopup} />
               </div>
               <div className="popup_contents">
                 {popupContent.map((popup) => {
