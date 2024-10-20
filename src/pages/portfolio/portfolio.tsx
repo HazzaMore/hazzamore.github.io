@@ -32,7 +32,7 @@ const Portfolio = () => {
 
   return (
     <PortfolioWrapper menuactive={menuactive}>
-      <div className="portfolio">
+      <div className="default_container">
         <div className="background TransformRight" />
         <section className="text TransformRight" data-aos="fade">
           <h1>My Portfolio</h1>
@@ -123,17 +123,6 @@ const Portfolio = () => {
 export default Portfolio;
 
 const PortfolioWrapper = styled.div<{ menuactive: boolean }>`
-  .portfolio {
-    position: absolute;
-    right: 0;
-    width: 100%;
-    min-height: 100vh;
-    padding: 5%;
-    margin-top: 60px;
-    align-items: center;
-    transition: var(--default-transition);
-    z-index: 2;
-  }
 
   .TransformRight {
     transform: translateX(${(props) => (props.menuactive ? `300px` : "0")});

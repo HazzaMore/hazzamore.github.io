@@ -58,6 +58,23 @@
   margin-right: auto;
 }
 
+.stop_x_scolling {
+  overflow-x: hidden;
+}
+
+.default_container {
+  position: absolute;
+  right: 0;
+  width: 100%;
+  min-height: 100vh;
+  padding: 5%;
+  margin-top: 60px;
+  align-items: center;
+  transition: var(--default-transition);
+  z-index: 2;
+  overflow-x: hidden;
+}
+
 /* Animate Background*/
 @keyframes Gradient {
   0% {

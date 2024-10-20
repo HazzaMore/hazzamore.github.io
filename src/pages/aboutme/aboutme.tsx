@@ -72,6 +72,7 @@ const AboutmeWrapper = styled.div<{ menuactive: boolean}>`
 
   .aboutme {
     padding: 50px;
+    overflow-x: hidden;
   }
 
   .aboutme, .name_profession  {
