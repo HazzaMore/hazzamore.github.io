@@ -130,7 +130,7 @@ const PortfolioWrapper = styled.div<{ menuactive: boolean }>`
   }
 
   h1 {
-    font-size: 3em;
+    font-size: 4em;
     font-weight: 800;
     color: #fff;
     line-height: 1em;
@@ -172,6 +172,7 @@ const PortfolioWrapper = styled.div<{ menuactive: boolean }>`
     h1 {
       margin-left: 1rem;
       margin-right: 1rem;
+      font-size: 3em;
     }
   }
 
