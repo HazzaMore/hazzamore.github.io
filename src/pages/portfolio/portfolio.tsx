@@ -34,7 +34,7 @@ const Portfolio = () => {
     <PortfolioWrapper menuactive={menuactive}>
       <div className="default_container">
         <div className="background TransformRight" />
-        <section className="text TransformRight" data-aos="fade">
+        <section className="TransformRight" data-aos="fade">
           <h1>My Portfolio</h1>
         </section>
         <section className="TransformRight">
@@ -130,7 +130,7 @@ const PortfolioWrapper = styled.div<{ menuactive: boolean }>`
   }
 
   h1 {
-    font-size: 3em;
+    font-size: 4em;
     font-weight: 800;
     color: #fff;
     line-height: 1em;
@@ -138,6 +138,7 @@ const PortfolioWrapper = styled.div<{ menuactive: boolean }>`
     transition: var(--default-transition);
     margin-top: 3rem;
     margin-bottom: 2rem;
+    margin-left: 3rem;
   }
 
   .Portfolio_container {
@@ -171,6 +172,7 @@ const PortfolioWrapper = styled.div<{ menuactive: boolean }>`
     h1 {
       margin-left: 1rem;
       margin-right: 1rem;
+      font-size: 3em;
     }
   }
 

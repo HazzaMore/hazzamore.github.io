@@ -1,19 +1,22 @@
-import '../../App.css';
+import "../../App.css";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { MenuContext } from "../../App";
 
 export const Navbar = () => {
-
   const { menuactive, handleToggle } = useContext(MenuContext);
 
   return (
     <NavbarWrapper menuactive={menuactive}>
       <nav className="navbar" data-aos="slide-down">
-      <div className="toggle" onClick={handleToggle} />
+        <div className="toggle" onClick={handleToggle} />
         <Link to={"/"} className="logo">
-          <img src={require('../images/Logos/MyLogos/HH_Logo_white.png')} width="80px" alt="" />
+          <img
+            src={require("../images/Logos/MyLogos/HH_Logo_white.png")}
+            width="80px"
+            alt=""
+          />
         </Link>
       </nav>
 
@@ -33,20 +36,20 @@ export const Navbar = () => {
 // export default menuactive;
 
 const NavbarWrapper = styled.div<{ menuactive: boolean }>`
-
-
   .toggle {
-    position: sticky;
+    position: relative;
     width: 60px;
     height: 60px;
-    background: url(${props => props.menuactive ? 'https://i.ibb.co/rt3HybH/close.png' : 'https://i.ibb.co/HrfVRcx/menu.png'});
+    background: url(${(props) =>
+      props.menuactive
+        ? "https://i.ibb.co/rt3HybH/close.png"
+        : "https://i.ibb.co/HrfVRcx/menu.png"});
     background-repeat: no-repeat;
-    background-size: ${props => props.menuactive ? '25px' : '30px'};
+    background-size: ${(props) => (props.menuactive ? "25px" : "30px")};
     background-position: center;
     cursor: pointer;
     z-index: 3000; /* Ensure toggle is always on top */
-    left: ${props => props.menuactive ? '300px' : '0'};
-    // filter: ${props => props.menuactive ? 'brightness(0%)' : 'brightness(0%) invert(100%)'};
+    left: ${(props) => (props.menuactive ? "300px" : "0")};
     transition: 0.3s ease;
   }
 
@@ -59,7 +62,7 @@ const NavbarWrapper = styled.div<{ menuactive: boolean }>`
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: ${props => props.menuactive ? '2000' : '-2000'};
+    z-index: ${(props) => (props.menuactive ? "2000" : "-2000")};
     transition: 0.3s ease;
   }
 
@@ -76,9 +79,12 @@ const NavbarWrapper = styled.div<{ menuactive: boolean }>`
   }
 
   .logo {
-    text-transform: uppercase;
+    position: relative;
     cursor: pointer;
-    list-style: none;
+    @media screen and (max-width: 900px) {
+      right: ${(props) => (props.menuactive ? "-300px" : "0")};
+      transition: 0.3s ease;
+    }
   }
 
   .menu ul {
