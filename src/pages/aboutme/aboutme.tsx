@@ -1,73 +1,104 @@
-import "../../App.css"
-import { Link } from "react-router-dom";
+import "../../App.css";
 import styled from "styled-components";
 import { useContext } from "react";
 import { MenuContext } from "../../App";
 import { AppCodeExperience } from "../../components/common/app-code-experience";
 import JobContainer from "./job-container";
-import { jlr_video, photo_editing_video } from "../../components/videos/videoslist";
-import { Kubrick_description, Twofrontteeth_description, Unique_Team_Building_description } from "./company_description";
-import {profile_image, unique_tb_banner} from "../../components/images/mainimages"
+import {
+  jlr_video,
+  photo_editing_video,
+} from "../../components/videos/videoslist";
+import {
+  Kubrick_description,
+  Twofrontteeth_description,
+  Unique_Team_Building_description,
+} from "./company_description";
+import {
+  profile_image,
+  unique_tb_banner,
+} from "../../components/images/mainimages";
+import ToTopBtn from "../../components/common/to-top-btn";
 
 const AboutMe = () => {
-
-  const { menuactive} = useContext(MenuContext);
+  const { menuactive } = useContext(MenuContext);
 
   return (
-    
     <AboutmeWrapper menuactive={menuactive}>
-      <div className="background TransformRight"/>
+      <div className="background TransformRight" />
+      <div className="button_placement TransformRight">
+        <ToTopBtn />
+      </div>
       <div className="aboutme TransformRight">
-        <section className="name_profession" data-aos="fade-right" data-aos-delay="500">
+        <section
+          className="name_profession"
+          data-aos="fade-right"
+          data-aos-delay="500"
+        >
           <h2>Harry Moore</h2>
-          <h1>Cloud Engineer <br/> based in London.</h1>
+          <h1>
+            Cloud Engineer <br /> based in London.
+          </h1>
         </section>
         <section className="aboutmerow">
-          <img className="aboutme-left" src={profile_image}/>
+          <img className="aboutme-left" src={profile_image} />
           <div className="aboutme-right">
             <h3>About Me</h3>
-            <p >A highly driven and enthusiastic individual with a zeal for automation, design and innovation in the Engineering and Software Industries. Taking great pride in my strong motivation to develop as an all-rounded individual as well as my excellent interpersonal and communication skills. This extends to outside the software and engineering industry, having worked with a number of Youtubers and Streamers on various projects.
-            <br/> <br/> My coding and software experience includes (hover for name):</p>
+            <p>
+              A highly driven and enthusiastic individual with a zeal for
+              automation, design and innovation in the Engineering and Software
+              Industries. Taking great pride in my strong motivation to develop
+              as an all-rounded individual as well as my excellent interpersonal
+              and communication skills. This extends to outside the software and
+              engineering industry, having worked with a number of Youtubers and
+              Streamers on various projects.
+              <br /> <br /> My coding and software experience includes (hover
+              for name):
+            </p>
             <AppCodeExperience />
           </div>
         </section>
         <section>
-          <JobContainer 
-          year="2022-2024"
-          company="Kubrick Group, London"
-          role="Cloud Engineering Consultant"
-          media={{ src: jlr_video }}
-          content={<Kubrick_description/>}
+          <JobContainer
+            year="2022-2024"
+            company="Kubrick Group, London"
+            role="Cloud Engineering Consultant"
+            media={{ src: jlr_video }}
+            content={<Kubrick_description />}
           />
           <JobContainer
-          year="2020-2021"
-          company="Unique Team Building, Australia"
-          role="Project Design Engineer"
-          media={{src: unique_tb_banner}}
-          content={<Unique_Team_Building_description/>}
+            year="2020-2021"
+            company="Unique Team Building, Australia"
+            role="Project Design Engineer"
+            media={{ src: unique_tb_banner }}
+            content={<Unique_Team_Building_description />}
           />
           <JobContainer
-          year="2014-2019"
-          company="Two Front Teeth Photography, Cheltenham"
-          role="Photo Editor & Framer"
-          media={{src: photo_editing_video}}
-          content={<Twofrontteeth_description/>}
+            year="2014-2019"
+            company="Two Front Teeth Photography, Cheltenham"
+            role="Photo Editor & Framer"
+            media={{ src: photo_editing_video }}
+            content={<Twofrontteeth_description />}
           />
         </section>
         <div></div>
       </div>
-
     </AboutmeWrapper>
-    
-  )
-}
+  );
+};
 
 export default AboutMe;
 
-const AboutmeWrapper = styled.div<{ menuactive: boolean}>`
+const AboutmeWrapper = styled.div<{ menuactive: boolean }>`
   .TransformRight {
-    transform: translateX(${ props => props.menuactive ? `300px` : '0'});
+    transform: translateX(${(props) => (props.menuactive ? `300px` : "0")});
     transition: 0.3s ease;
+  }
+
+  .button_placement {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
   }
 
   .aboutme {
@@ -75,7 +106,8 @@ const AboutmeWrapper = styled.div<{ menuactive: boolean}>`
     overflow-x: hidden;
   }
 
-  .aboutme, .name_profession  {
+  .aboutme,
+  .name_profession {
     margin-top: 200px;
   }
 
@@ -129,7 +161,7 @@ const AboutmeWrapper = styled.div<{ menuactive: boolean}>`
     font-size: 4em;
     color: #fff;
   }
-  p{
+  p {
     font-size: 1.4em;
     color: #fff;
     margin: 20px 0;
@@ -146,28 +178,33 @@ const AboutmeWrapper = styled.div<{ menuactive: boolean}>`
       grid-auto-rows: minmax(0px, auto);
       margin-top: 80%;
     }
-    
-    .banner {
-      grid-gap: 1.5rem;
-      margin-left: 5rem;
-      margin-right: 2rem;}
 
-
-    .aboutme-left, .aboutme-right {
+    .aboutme-left,
+    .aboutme-right {
       display: block;
       margin-left: auto;
       margin-right: auto;
     }
-    h1 {font-size: 4em;}
-    h2 {font-size: 1.8em;}
-    h3 {font-size: 3.5em;}
-    p {font-size: 1.2em;}
+    h1 {
+      font-size: 4em;
+    }
+    h2 {
+      font-size: 1.8em;
+    }
+    h3 {
+      font-size: 3.5em;
+    }
+    p {
+      font-size: 1.2em;
+    }
   }
 
   @media screen and (max-width: 900px) {
-    .aboutme {
-      padding: 30px;
-    }
+
+  .aboutme {
+    margin-top: 0px;
+  }
+
     .aboutme-left {
       width: 300px;
       display: block;
@@ -181,20 +218,15 @@ const AboutmeWrapper = styled.div<{ menuactive: boolean}>`
       width: 30px;
       margin: -5px;
     }
-    .aboutme p2, .bulletlist li {
+    .aboutme p2,
+    .bulletlist li {
       font-size: 1em;
     }
-      .banner img{width: auto; height: 80px;}
-  
-      /* .banner_container {margin-left: -4rem;} */
-    .banner {
-      grid-gap: 1.5rem;
-      margin-left: 2rem;
-      margin-right: 1rem;
-      grid-template-columns: 1fr;}
 
-    .right_column {display: none;}
-    
+    .right_column {
+      display: none;
+    }
+
     h1 {
       font-size: 2.8em;
     }
