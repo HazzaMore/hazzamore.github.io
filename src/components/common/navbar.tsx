@@ -27,6 +27,9 @@ export const Navbar = () => {
           <li><Link to={"/my-portfolio"}>My Portfolio</Link></li>
           <li><Link to={"/cv"}>CV</Link></li>
           <li><Link to={"/contact"}>Contact</Link></li>
+          <br/>
+          <hr/>
+          <li><Link to={"/upcoming"}>Site Todo</Link></li>
         </ul>
       </div>
     </NavbarWrapper>
@@ -63,7 +66,12 @@ const NavbarWrapper = styled.div<{ menuactive: boolean }>`
     align-items: center;
     justify-content: center;
     z-index: ${(props) => (props.menuactive ? "2000" : "-2000")};
-    transition: 0.3s ease;
+    transition: 0.5s ease;
+  }
+
+  hr {
+    z-index: -2000;
+    transition: 0;
   }
 
   nav {
