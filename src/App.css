@@ -52,6 +52,44 @@
 	box-shadow: inset 10px 10px 200px #000000, inset -10px -10px 200px #000000;
 }
 
+/* ============= Shimmer on hover ========= */
+
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer:before, shimmer:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: red;
+  filter: blur(60px);
+  opacity: 0.4;
+  transition: 0.6s;
+}
+
+.shimmer:before{
+  width: 60px;
+  background: rgba(225,225,225,0.6);
+  transform: translateX(-230px) skewX(-45deg);
+}
+.shimmer:after{
+  width: 30px;
+  background: rgba(225,225,225,0.6);
+  transform: translateX(-230px) skewX(-45deg);
+}
+
+.shimmer:hover:before, shimmer:hover:after {
+opacity: 0.6;
+transform: translateX(520px) skewX(-45deg);
+}
+
+
+/* ============= Commonly used ========= */
+
 .center {
   display: block;
   margin-left: auto;
