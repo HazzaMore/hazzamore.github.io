@@ -15,7 +15,7 @@ const Upcoming = () => {
           <h1>Website Improvements to come</h1>
           <div className="checkbox_container">
             <Checkbox completed={true} content="Add the new upcoming page"/>
-            <Checkbox completed={false} content="Add the logo and website title to the tab"/>
+            <Checkbox completed={true} content="Add the logo and website title to the tab"/>
             <Checkbox completed={false} content="Add a 'to top' button"/>
             <Checkbox completed={false} content="Add the scoll reveal animations"/>
             <Checkbox completed={false} content="Add social links to contact me page"/>
