@@ -16,14 +16,16 @@ const Upcoming = () => {
           <div className="checkbox_container">
             <Checkbox completed={true} content="Add the new upcoming page"/>
             <Checkbox completed={false} content="Add the logo and website title to the tab"/>
-            <Checkbox completed={false} content="Add social links to contact me page"/>
-            <Checkbox completed={false} content="Link to a firebase database"/>
-            <Checkbox completed={false} content="Add the scoll reveal animations"/>
             <Checkbox completed={false} content="Add a 'to top' button"/>
+            <Checkbox completed={false} content="Add the scoll reveal animations"/>
+            <Checkbox completed={false} content="Add social links to contact me page"/>
+            
+            <Checkbox completed={false} content="Link to a firebase database"/>
             <Checkbox completed={false} content="Fix horizontal scrollbar issue with Home & About Me pages"/>
             <Checkbox completed={false} content="Add Loading Animations"/>
             <Checkbox completed={false} content="Add login so owners can update the site"/>
             <Checkbox completed={false} content="Consider improving the CV page design"/>
+            <Checkbox completed={false} content="Consider improving the About Me page design"/>
             <Checkbox completed={false} content="Reduce repeated css and clean up"/>
           </div>
         </div>
