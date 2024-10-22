@@ -40,6 +40,8 @@ export const PortfolioCardWrapper = styled.div`
   --card-border-radius: 12px;
 
   .card {
+    position: relative;
+    overflow: hidden;
     display: inline-block;
     background: rgba(128, 128, 134, 0.4);
     border-radius: var(--card-border-radius);
@@ -88,6 +90,34 @@ export const PortfolioCardWrapper = styled.div`
     box-shadow: 0 0 2px var(--website_blue), 0 0 5px var(--website_blue),
       0 0 5px var(--website_blue), 0 0 20px var(--website_blue),
       0 0 20px var(--website_blue);
+}
+
+  .card:before, card:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: red;
+    filter: blur(60px);
+    opacity: 0.4;
+    transition: 1.5s;
+  }
+
+  .card:before{
+    width: 90px;
+    background: rgba(225,225,225,0.6);
+    transform: translateX(-230px) skewX(-30deg);
+  }
+  .card:after{
+    width: 60px;
+    background: rgba(225,225,225,0.6);
+    transform: translateX(-230px) skewX(-30deg);
+  }
+
+  .card:hover:before, card:hover:after {
+  opacity: 0.6;
+  transform: translateX(520px) skewX(-30deg);
   }
 
   .portfolio_btn {

@@ -15,12 +15,16 @@ const Upcoming = () => {
           <h1>Website Improvements to come</h1>
           <div className="checkbox_container">
             <Checkbox completed={true} content="Add the new upcoming page"/>
-            <Checkbox completed={false} content="Add the logo and website title to the tab"/>
+            <Checkbox completed={true} content="Add the logo and website title to the tab"/>
             <Checkbox completed={false} content="Add a 'to top' button"/>
             <Checkbox completed={false} content="Add the scoll reveal animations"/>
             <Checkbox completed={false} content="Add social links to contact me page"/>
             
             <Checkbox completed={false} content="Link to a firebase database"/>
+            <Checkbox completed={false} content="Add the ...readmore for large fields of text"/>
+            <Checkbox completed={false} content="Add information about the html and react site creation"/>
+            <Checkbox completed={false} content="Add information about the JLR project in the portfolio - link to it from about me section"/>
+            <Checkbox completed={false} content="Complete the remaining portfolio popups"/>
             <Checkbox completed={false} content="Fix horizontal scrollbar issue with Home & About Me pages"/>
             <Checkbox completed={false} content="Add Loading Animations"/>
             <Checkbox completed={false} content="Add login so owners can update the site"/>

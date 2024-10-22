@@ -219,4 +219,30 @@ const CompanyWrapper = styled.div`
     font-size: 1.4em;
     color: black;
   }
+
+  @media screen and (max-width: 900px) {
+    .logo-text-block img {
+      width: auto;
+      height: 80px;
+    }
+  
+    .logo-text-block {
+      grid-template-columns: 1fr;
+      padding: 50px 50px 0 50px;
+    }
+    
+    .right-column {
+      display: none;
+      margin-top: 0;
+      text-align: center;
+    }
+
+    p.company_description {
+      font-size: 1.2em;
+    }
+
+    .bulletlist li {
+      font-size: 1em;
+    }
+  }
 `;
