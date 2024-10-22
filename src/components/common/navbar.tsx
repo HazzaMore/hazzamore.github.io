@@ -65,8 +65,10 @@ const NavbarWrapper = styled.div<{ menuactive: boolean }>`
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: ${(props) => (props.menuactive ? "2000" : "-2000")};
-    transition: 0.5s ease;
+    // background-color: white;
+    // z-index: -3;
+    z-index: ${(props) => (props.menuactive ? "3" : "-3")};
+    transition: 0.1s ease;
   }
 
   hr {
