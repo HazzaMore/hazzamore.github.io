@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.1e383079.css",
-    "main.js": "/static/js/main.6acca80e.js",
+    "main.js": "/static/js/main.aefed854.js",
     "static/media/JLR_Video.mp4": "/static/media/JLR_Video.ad6ff7961f247fd5e252.mp4",
     "static/media/PhotoEditingVideo.mp4": "/static/media/PhotoEditingVideo.839795451e1ab7f6663b.mp4",
     "static/media/Placement_preview.png": "/static/media/Placement_preview.7c492d85fa674fa437d3.png",
@@ -55,10 +55,10 @@
     "static/media/ubuntu-icon.svg": "/static/media/ubuntu-icon.fd3e1b2240401477a70ce0e6c79e9dc1.svg",
     "static/media/terraform-icon.svg": "/static/media/terraform-icon.d07a1c39ea9a8d7778eb9f279e988a73.svg",
     "main.1e383079.css.map": "/static/css/main.1e383079.css.map",
-    "main.6acca80e.js.map": "/static/js/main.6acca80e.js.map"
+    "main.aefed854.js.map": "/static/js/main.aefed854.js.map"
   },
   "entrypoints": [
     "static/css/main.1e383079.css",
-    "static/js/main.6acca80e.js"
+    "static/js/main.aefed854.js"
   ]
 }
