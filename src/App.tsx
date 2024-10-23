@@ -24,7 +24,7 @@ function App() {
   return (
     <div className="Showcase">
       <MenuContext.Provider value={{menuactive, handleToggle}}>
-        <Router>
+        <Router basename="/repo-name">
         <Navbar />
         <Routes>
           <Route path="/" element={<Homepage />}/>
