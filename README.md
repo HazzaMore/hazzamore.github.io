@@ -31,9 +31,6 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `npm run eject`
 
-### Deploying to github pages
-https://github.com/gitname/react-gh-pages
-
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
 If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
@@ -54,3 +51,29 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 Hurdles faced:
 
 * The scroll bar appearing on other pages causes the menu to be pushed to the same width as the scroll bar. Using a getScrollbarWidth function, the overshot distance from the scrollbar width is compensated for.
+
+## Deploying to github pages
+https://github.com/gitname/react-gh-pages
+
+## Setting up Firebase
+`npm i firebase`
+1. https://console.firebase.google.com/u/0/
+1. Create a project
+1. Leave everything as default
+
+## Configuring Firebase
+
+### Connect to React
+1. Project Overview -> Settings -> Project Settings
+1. Your Apps -> click the `</>` button
+1. Register your app
+1. In your code, create a file called `firebase-config.js` and copy the firebase SDK to there from the website
+1. Within the console again, Build -> Firestore Database -> Create database
+1. Set Region and 'Start in production mode'
+
+### Start Firestore Database
+1. Requires following code in the firebase-config:
+```
+import {getFirestore} from "@firebase/firestore"
+export const db = getFirestore(app);
+```
