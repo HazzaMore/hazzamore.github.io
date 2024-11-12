@@ -6,6 +6,7 @@ interface PortfolioCardProps {
   animation_delay: number;
   cardtitle: string;
   mainpicture: string;
+  description: string;
   software: string;
   softwareicon: string;
 }

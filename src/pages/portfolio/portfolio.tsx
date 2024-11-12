@@ -4,7 +4,8 @@ import { MenuContext } from "../../App";
 import styled from "styled-components";
 
 import { Cards } from "./data";
-import { PortfolioCardWrapper } from "./card-layout";
+// import { PortfolioCardWrapper } from "./card-layout";
+import PortfolioCard from "./card-layout-v2";
 import { Popups, PopupWrapper } from "./popups";
 
 import { RxCross2 } from "react-icons/rx";
@@ -29,13 +30,12 @@ const Portfolio = () => {
     setPopupToggle(false);
   };
 
-
   return (
     <PortfolioWrapper menuactive={menuactive}>
       <div className="default_container">
         <div className="background TransformRight" />
         <section className="TransformRight" data-aos="fade">
-          <h1>My Portfolio</h1>
+          <h1 className="header">My Portfolio</h1>
         </section>
         <section className="TransformRight">
           <MenuChoiceWrapper>
@@ -58,36 +58,23 @@ const Portfolio = () => {
         </section>
         <section className="Portfolio_container TransformRight" data-aos="fade">
           {FilteredCards.map((selected_card, index) => (
-            <PortfolioCardWrapper key={index}>
-              <article
-                className="card"
-                data-aos="fade-right"
-                data-aos-anchor="portfolio"
-                data-aos-delay={1000 + index * 200}
-              >
-                <a
-                  className="portfolio_btn"
-                  onClick={() => {
-                    console.log(selected_card);
-                    openPopup(selected_card);
-                  }}
-                >
-                  <img
-                    className="portfolio_img"
-                    src={selected_card.mainpicture}
-                  />
-                  <div className="software">
-                    <h2>{selected_card.software}</h2>
-                    <i className="software-icon">
-                      <img src={selected_card.softwareicon} />
-                    </i>
-                  </div>
-                  <div>
-                    <h3>{selected_card.cardtitle}</h3>
-                  </div>
-                </a>
-              </article>
-            </PortfolioCardWrapper>
+            <a
+              className="portfolio_btn"
+              onClick={() => {
+                openPopup(selected_card);
+              }}
+            >
+              <PortfolioCard
+                key={index}
+                cardnumber={index}
+                animation_delay={index * 100}
+                cardtitle={selected_card.cardtitle}
+                mainpicture={selected_card.mainpicture}
+                description={selected_card.description}
+                software={selected_card.software}
+                softwareicon={selected_card.softwareicon}
+              />
+            </a>
           ))}
         </section>
       </div>
@@ -123,13 +110,12 @@ const Portfolio = () => {
 export default Portfolio;
 
 const PortfolioWrapper = styled.div<{ menuactive: boolean }>`
-
   .TransformRight {
     transform: translateX(${(props) => (props.menuactive ? `300px` : "0")});
     transition: 0.3s ease;
   }
 
-  h1 {
+  .header {
     font-size: 4em;
     font-weight: 800;
     color: #fff;
@@ -143,33 +129,30 @@ const PortfolioWrapper = styled.div<{ menuactive: boolean }>`
 
   .Portfolio_container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    max-width: 100%;
-    align-items: center;
-    gap: 2.3rem;
-    margin-top: 2rem;
+    grid-template-columns: repeat(auto-fill, 360px);
+    justify-content: space-around;
+    gap: 1rem;
+    margin-top: 2.3rem;
     margin-left: 3rem;
     margin-right: 3rem;
     z-index: 4;
   }
 
+  .portfolio_btn {
+    cursor: pointer;
+  }
+
   @media screen and (max-width: 1600px) {
-    .Portfolio_container {
-      grid-template-columns: repeat(3, 1fr);
-    }
     .Portfolio_container,
-    h1 {
+    .header {
       margin-left: 2rem;
       margin-right: 2rem;
     }
   }
 
   @media screen and (max-width: 1300px) {
-    .Portfolio_container {
-      grid-template-columns: repeat(2, 1fr);
-    }
     .Portfolio_container,
-    h1 {
+    .header {
       margin-left: 1rem;
       margin-right: 1rem;
       font-size: 3em;
@@ -177,11 +160,8 @@ const PortfolioWrapper = styled.div<{ menuactive: boolean }>`
   }
 
   @media screen and (max-width: 900px) {
-    .Portfolio_container {
-      grid-template-columns: repeat(1, 1fr);
-    }
     .Portfolio_container,
-    h1 {
+    .header {
       margin-left: 0rem;
       margin-right: 0rem;
     }
