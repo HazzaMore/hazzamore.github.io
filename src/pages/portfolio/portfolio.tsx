@@ -59,13 +59,13 @@ const Portfolio = () => {
         <section className="Portfolio_container " data-aos="fade">
           {FilteredCards.map((selected_card, index) => (
             <a
+              key={index}
               className="portfolio_btn"
               onClick={() => {
                 openPopup(selected_card);
               }}
             >
               <PortfolioCard
-                key={index}
                 cardnumber={index}
                 animation_delay={index * 100}
                 cardtitle={selected_card.cardtitle}

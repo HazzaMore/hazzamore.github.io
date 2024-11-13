@@ -14,10 +14,10 @@ interface PortfolioCardProps {
 }
 
 export const PortfolioCard = (props: PortfolioCardProps) => {
-  const cardWidth = "40px";
+  const cardwidth = "40px";
   return (
-    <PortfolioCardWrapper cardWidth={cardWidth}>
-      <GlareCard radius={`${0.3 * parseFloat(cardWidth)}px`} className="card-dimensions">
+    <PortfolioCardWrapper $cardwidth={cardwidth}>
+      <GlareCard radius={`${0.3 * parseFloat(cardwidth)}px`} className="card-dimensions">
         <img className="hollograph-background" src={HollographicCard} />
         <div className="card-inside">
           <img className="card-img" src={props.mainpicture} width={"100px"} />
@@ -43,9 +43,9 @@ export const PortfolioCard = (props: PortfolioCardProps) => {
 
 export default PortfolioCard;
 
-export const PortfolioCardWrapper = styled.div<{ cardWidth: string }>`
+export const PortfolioCardWrapper = styled.div<{ $cardwidth: string }>`
   // Card Variables
-  --card-width: ${(props) => props.cardWidth};
+  --card-width: ${(props) => props.$cardwidth};
 
   .card-dimensions {
     display: flex;
