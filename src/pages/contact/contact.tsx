@@ -35,8 +35,8 @@ const Contact = () => {
     <ContactWrapper >
       <ToastContainer />
       <div className="default_container">
-        <div className="background TransformRight" />
-        <section className="info_form_container TransformRight">
+        <div className="background " />
+        <section className="info_form_container ">
           <div className="y_align_container" data-aos="fade-right">
             <div>
               <div className="text">

@@ -22,11 +22,11 @@ const AboutMe = () => {
 
   return (
     <AboutmeWrapper>
-      <div className="background TransformRight" />
-      <div className="button_placement TransformRight">
+      <div className="background " />
+      <div className="button_placement ">
         <ToTopBtn />
       </div>
-      <div className="aboutme TransformRight">
+      <div className="aboutme ">
         <section
           className="name_profession"
           data-aos="fade-right"

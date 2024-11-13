@@ -9,8 +9,8 @@ const CV = () => {
   return (
     <CVWrapper >
       <div className="default_container">
-        <div className="background TransformRight" />
-        <div className="title_button TransformRight" data-aos="fade">
+        <div className="background " />
+        <div className="title_button " data-aos="fade">
           <h1>CV</h1>
           <a
             href="..\Documents\HarryMooreCV2024.pdf"
@@ -20,7 +20,7 @@ const CV = () => {
             <i className="fa fa-download"></i> Download PDF
           </a>
         </div>
-        <div className = "cv_word TransformRight" data-aos="fade-right" data-aos-delay="1000">
+        <div className = "cv_word " data-aos="fade-right" data-aos-delay="1000">
         <iframe src="https://onedrive.live.com/embed?resid=F4950084C69CA914%21112784&amp;authkey=%21ALOJgvTMVs_-6J0&amp;em=2&amp;wdEmbedCode=0&amp;wdStartOn=1">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> document, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
       </div>
       </div>

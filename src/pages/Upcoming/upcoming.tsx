@@ -10,8 +10,8 @@ const Upcoming = () => {
   return (
     <UpcomingWrapper >
       <div className="default_container">
-        <div className="background TransformRight" />
-        <div className="TransformRight">
+        <div className="background " />
+        <div className="">
           <h1>Website Improvements to come</h1>
           <div className="checkbox_container">
             <Checkbox completed={true} content="Add the new upcoming page"/>

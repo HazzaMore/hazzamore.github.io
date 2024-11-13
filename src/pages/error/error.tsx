@@ -7,8 +7,8 @@ const Errorpage = () => {
   return (
     
     <ErrorWrapper >
-      <div className="background TransformRight"/>
-      <section className="text TransformRight" data-aos="fade">
+      <div className="background "/>
+      <section className="text " data-aos="fade">
         <h1>
           Error 404
           <br/>

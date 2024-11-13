@@ -13,7 +13,7 @@ const Homepage = () => {
     <HomepageWrapper >
       <div className="background-overlay" />
       <video
-        className="BackgroundVideo TransformRight"
+        className="BackgroundVideo "
         src={background_video}
         playsInline
         muted
@@ -21,7 +21,7 @@ const Homepage = () => {
         autoPlay
       />
 
-      <div className="TransformRight">
+      <div className="">
         <section className="text" data-aos="fade">
           <h2>
             Where Cloud <br /> Development{" "}
@@ -48,7 +48,7 @@ const Homepage = () => {
         </section>
       </div>
       <footer>
-        <ul className="social TransformRight">
+        <ul className="social ">
           <li className="social_icon">
             <Link to="//www.youtube.com/@HazzaMore">
               <BsYoutube size={70} />

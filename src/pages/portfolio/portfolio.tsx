@@ -33,11 +33,11 @@ const Portfolio = () => {
   return (
     <PortfolioWrapper >
       <div className="default_container">
-        <div className="background TransformRight" />
-        <section className="TransformRight" data-aos="fade">
+        <div className="background " />
+        <section className="" data-aos="fade">
           <h1 className="header">My Portfolio</h1>
         </section>
-        <section className="TransformRight">
+        <section className="">
           <MenuChoiceWrapper>
             <div className="choice-type-container">
               <div className="choice-type-tabs">
@@ -56,7 +56,7 @@ const Portfolio = () => {
             </div>
           </MenuChoiceWrapper>
         </section>
-        <section className="Portfolio_container TransformRight" data-aos="fade">
+        <section className="Portfolio_container " data-aos="fade">
           {FilteredCards.map((selected_card, index) => (
             <a
               className="portfolio_btn"
