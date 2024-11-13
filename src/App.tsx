@@ -1,5 +1,5 @@
 import './App.css';
-import { Navbar } from './components/common/navbar';
+import { Header } from './components/common/header';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {Homepage, AboutMe, Portfolio, CV, Contact, Error, Upcoming} from './pages/index';
 
@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="Showcase">
         <Router>
-        <Navbar />
+        <Header />
         <Routes>
           <Route path="/" element={<Homepage />}/>
           <Route path="/about-me" element={<AboutMe/>}/>
