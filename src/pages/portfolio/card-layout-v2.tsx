@@ -1,6 +1,7 @@
 import "../../App.css";
 import styled from "styled-components";
 import { HollographicCard } from "../../components/images/mainimages";
+import { GlareCard } from "../../components/common/glare-card";
 
 interface PortfolioCardProps {
   cardnumber: number;
@@ -13,20 +14,21 @@ interface PortfolioCardProps {
 }
 
 export const PortfolioCard = (props: PortfolioCardProps) => {
+  const cardWidth = "40px";
   return (
-    <PortfolioCardWrapper>
-      <div className="card-dimensions">
+    <PortfolioCardWrapper cardWidth={cardWidth}>
+      <GlareCard radius={`${0.3 * parseFloat(cardWidth)}px`} className="card-dimensions">
         <img className="hollograph-background" src={HollographicCard} />
         <div className="card-inside">
           <img className="card-img" src={props.mainpicture} width={"100px"} />
           <div className="card-content">
-            <div className="card-title-container">
-              <h1 className="card-title">{props.cardtitle}</h1>
-            </div>
-            <p className="descripton">{props.description}</p>
-            <div className="tap-to-open">
-              <p> &lt; Tap to open &gt;</p>
-            </div>
+        <div className="card-title-container">
+          <h1 className="card-title">{props.cardtitle}</h1>
+        </div>
+        <p className="descripton">{props.description}</p>
+        <div className="tap-to-open">
+          <p> &lt; Tap to open &gt;</p>
+        </div>
           </div>
         </div>
         <img className="sofware-icon" src={props.softwareicon} />
@@ -34,16 +36,16 @@ export const PortfolioCard = (props: PortfolioCardProps) => {
           src={require("../../components/images/Logos/MyLogos/HH_Logo_colour.png")}
           className="circle-img"
         />
-      </div>
+      </GlareCard>
     </PortfolioCardWrapper>
   );
 };
 
 export default PortfolioCard;
 
-export const PortfolioCardWrapper = styled.div`
+export const PortfolioCardWrapper = styled.div<{ cardWidth: string }>`
   // Card Variables
-  --card-width: 40px;
+  --card-width: ${(props) => props.cardWidth};
 
   .card-dimensions {
     display: flex;
@@ -54,7 +56,6 @@ export const PortfolioCardWrapper = styled.div`
     border-radius: calc(0.3 * var(--card-width));
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
     overflow: hidden;
-
   }
 
   .hollograph-background {
@@ -78,7 +79,7 @@ export const PortfolioCardWrapper = styled.div`
   .card-img {
     object-fit: cover;
     width: 100%;
-    height: calc(4.5 * 40px);
+    height: calc(4.5 * var(--card-width));
   }
 
   .card-content {
@@ -86,13 +87,14 @@ export const PortfolioCardWrapper = styled.div`
   }
 
   .card-title-container {
-  display: flex;
-  align-items: center;
-  height: 80px;
+    display: flex;
+    align-items: center;
+    height: 80px;
   }
 
   .card-title {
     font-size: 22px;
+    line-height: 1;
   }
 
   .descripton {
