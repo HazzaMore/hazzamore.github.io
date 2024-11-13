@@ -1,6 +1,6 @@
 import "../../App.css";
 import { useContext, useEffect, useState } from "react";
-import { MenuContext } from "../../App";
+
 import styled from "styled-components";
 
 import { Cards } from "./data";
@@ -11,7 +11,7 @@ import { Popups, PopupWrapper } from "./popups";
 import { RxCross2 } from "react-icons/rx";
 
 const Portfolio = () => {
-  const { menuactive } = useContext(MenuContext);
+  
   const MenuHeaders = ["All", "Code", "Creative"];
   const [menuChoice, setMenuChoice] = useState<string>(MenuHeaders[0]);
   const FilteredCards =
@@ -31,7 +31,7 @@ const Portfolio = () => {
   };
 
   return (
-    <PortfolioWrapper menuactive={menuactive}>
+    <PortfolioWrapper >
       <div className="default_container">
         <div className="background TransformRight" />
         <section className="TransformRight" data-aos="fade">
@@ -109,11 +109,8 @@ const Portfolio = () => {
 
 export default Portfolio;
 
-const PortfolioWrapper = styled.div<{ menuactive: boolean }>`
-  .TransformRight {
-    transform: translateX(${(props) => (props.menuactive ? `300px` : "0")});
-    transition: 0.3s ease;
-  }
+const PortfolioWrapper = styled.div`
+
 
   .header {
     font-size: 4em;

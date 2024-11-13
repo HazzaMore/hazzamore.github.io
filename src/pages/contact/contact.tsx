@@ -1,12 +1,12 @@
 import "../../App.css";
 import { useContext } from "react";
-import { MenuContext } from "../../App";
+
 import styled from "styled-components";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Contact = () => {
-  const { menuactive } = useContext(MenuContext);
+  
 
   const onSubmit = async (event: any) => {
     event.preventDefault();
@@ -32,7 +32,7 @@ const Contact = () => {
   };
 
   return (
-    <ContactWrapper menuactive={menuactive}>
+    <ContactWrapper >
       <ToastContainer />
       <div className="default_container">
         <div className="background TransformRight" />
@@ -100,11 +100,8 @@ const Contact = () => {
 
 export default Contact;
 
-const ContactWrapper = styled.div<{ menuactive: boolean }>`
-  .TransformRight {
-    transform: translateX(${(props) => (props.menuactive ? `300px` : "0")});
-    transition: 0.3s ease;
-  }
+const ContactWrapper = styled.div`
+
 
   .info_form_container {
     display: grid;

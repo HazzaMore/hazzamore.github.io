@@ -1,14 +1,14 @@
 import "../../App.css";
 import { useContext } from "react";
-import { MenuContext } from "../../App";
+
 import styled from "styled-components";
 import Checkbox from "./checkbox";
 
 const Upcoming = () => {
-  const { menuactive } = useContext(MenuContext);
+  
 
   return (
-    <UpcomingWrapper menuactive={menuactive}>
+    <UpcomingWrapper >
       <div className="default_container">
         <div className="background TransformRight" />
         <div className="TransformRight">
@@ -40,11 +40,8 @@ const Upcoming = () => {
 
 export default Upcoming;
 
-const UpcomingWrapper = styled.div<{ menuactive: boolean }>`
-  .TransformRight {
-    transform: translateX(${(props) => (props.menuactive ? `300px` : "0")});
-    transition: 0.3s ease;
-  }
+const UpcomingWrapper = styled.div`
+
 
   h1 {
     font-size: 4em;

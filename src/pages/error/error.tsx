@@ -1,16 +1,12 @@
 import "../../App.css"
-import { useContext } from "react";
-import { MenuContext } from "../../App";
 import styled from "styled-components";
 
 
 const Errorpage = () => {
 
-  const { menuactive} = useContext(MenuContext);
-
   return (
     
-    <ErrorWrapper menuactive={menuactive}>
+    <ErrorWrapper >
       <div className="background TransformRight"/>
       <section className="text TransformRight" data-aos="fade">
         <h1>
@@ -19,19 +15,13 @@ const Errorpage = () => {
           Sorry the page you are looking for does not exist
         </h1>
       </section>
-
     </ErrorWrapper>
   )
 }
 
 export default Errorpage;
 
-  const ErrorWrapper = styled.div<{ menuactive: boolean}>`
-
-  .TransformRight {
-    transform: translateX(${ props => props.menuactive ? `300px` : '0'});
-    transition: 0.3s ease;
-  }
+  const ErrorWrapper = styled.div`
 
   h1 {
     font-size: 3em;

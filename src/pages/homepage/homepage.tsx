@@ -1,17 +1,17 @@
-import "../../App.css"
+import "../../App.css";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useContext } from "react";
-import { MenuContext } from "../../App";
-import { BsLinkedin, BsYoutube, BsInstagram, BsTwitterX  } from "react-icons/bs";
+
+import { BsLinkedin, BsYoutube, BsInstagram, BsTwitterX } from "react-icons/bs";
 import { background_video } from "../../components/videos/videoslist";
 
 const Homepage = () => {
-
-  const { menuactive } = useContext(MenuContext);
+  
 
   return (
-    <HomepageWrapper menuactive={menuactive}>
+    <HomepageWrapper >
+      <div className="background-overlay" />
       <video
         className="BackgroundVideo TransformRight"
         src={background_video}
@@ -19,35 +19,54 @@ const Homepage = () => {
         muted
         loop
         autoPlay
-        />
+      />
+
       <div className="TransformRight">
         <section className="text" data-aos="fade">
-        <h2>Where Cloud <br/> Development </h2> 
-        <h3 data-aos="fade" data-aos-delay="1000">Meets Creativity</h3>
-        <p className="index_paragraph" data-aos="fade" data-aos-delay="2400" data-aos-anchor="text">Discover how Harry/Hazza can empower your company</p>
-        <a href="/about-me" data-aos="fade" data-aos-delay="2400" data-aos-anchor="index_paragraph">See More</a>
-        </section>  
+          <h2>
+            Where Cloud <br /> Development{" "}
+          </h2>
+          <h3 data-aos="fade" data-aos-delay="1000">
+            Meets Creativity
+          </h3>
+          <p
+            className="index_paragraph"
+            data-aos="fade"
+            data-aos-delay="2400"
+            data-aos-anchor="text"
+          >
+            Discover how Harry can empower your company
+          </p>
+          <a
+            href="/about-me"
+            data-aos="fade"
+            data-aos-delay="2400"
+            data-aos-anchor="index_paragraph"
+          >
+            See More
+          </a>
+        </section>
       </div>
       <footer>
         <ul className="social TransformRight">
           <li className="social_icon">
-            <Link to="//www.youtube.com/@HazzaMore" >
-              <BsYoutube size = { 70 }/>
+            <Link to="//www.youtube.com/@HazzaMore">
+              <BsYoutube size={70} />
             </Link>
           </li>
           <li className="social_icon">
-            <Link to="//www.linkedin.com/in/harrymooremeng/" >
-              <BsLinkedin size = { 60 }/>
+            <Link to="//www.linkedin.com/in/harrymooremeng/">
+              <BsLinkedin size={60} />
             </Link>
           </li>
           <li className="social_icon">
-            <Link to="//x.com/HazzaMoreEdits" >
-              <BsTwitterX  size = { 60 }/>
+            <Link to="//x.com/HazzaMoreEdits">
+              <BsTwitterX size={60} />
             </Link>
           </li>
           <li className="social_icon">
-            <Link to="//www.instagram.com/harrymooreuk/" >
-              <BsInstagram size = { 60 }/>
+            <Link to="//www.instagram.com/harrymooreuk/">
+              <BsInstagram size={60} />
             </Link>
           </li>
         </ul>
@@ -58,13 +77,7 @@ const Homepage = () => {
 
 export default Homepage;
 
-// ${ props => props.menuactive ? '0' : '300px'}
-const HomepageWrapper = styled.div<{ menuactive: boolean }>`
-
-  .TransformRight {
-    transform: translateX(${ props => props.menuactive ? '300px' : '0'});
-    transition: 0.3s ease;
-  }
+const HomepageWrapper = styled.div`
 
   .BackgroundVideo {
     position: absolute;
@@ -75,6 +88,16 @@ const HomepageWrapper = styled.div<{ menuactive: boolean }>`
     object-fit: cover;
     opacity: 1;
     z-index: -3;
+  }
+
+  .background-overlay {
+    height: 200px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -2;
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
   }
 
   .showcase {
@@ -118,7 +141,8 @@ const HomepageWrapper = styled.div<{ menuactive: boolean }>`
   }
 
   /* See More button */
-  .text a, .popup_container a {
+  .text a,
+  .popup_container a {
     display: inline-block;
     font-size: 1em;
     background: #fff;
@@ -137,34 +161,45 @@ const HomepageWrapper = styled.div<{ menuactive: boolean }>`
   }
 
   .social {
-  position: absolute;
-  left: 10%;
-  z-index: 10;
-  bottom: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  scale: 120%
-}
-.social li {
-  list-style: none;
-}
-.social li a {
-  display: inline-block;
-  margin-right: 5px;
-  filter: brightness(0) invert(1);
-  transform: scale(0.3);
-  transition: var(--default-transition);
-}
-.social li a:hover {
-  transform: scale(0.5) translateY(-15px);
-}
+    position: absolute;
+    left: 10%;
+    z-index: 10;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scale: 120%;
+  }
+  .social li {
+    list-style: none;
+  }
+  .social li a {
+    display: inline-block;
+    margin-right: 5px;
+    filter: brightness(0) invert(1);
+    transform: scale(0.3);
+    transition: var(--default-transition);
+  }
+  .social li a:hover {
+    transform: scale(0.5) translateY(-15px);
+  }
 
-@media screen and (max-width: 900px) {
-  .showcase, .showcase header{padding: 30px;}
-  .text h2{ font-size: 2.8em;}
-  .text h3{font-size: 1.5em;}
-  .text p{margin-right: 150px;}
-  .text h4 {font-size: 2.5rem;}
-}
-`
+  @media screen and (max-width: 900px) {
+    .showcase,
+    .showcase header {
+      padding: 30px;
+    }
+    .text h2 {
+      font-size: 2.8em;
+    }
+    .text h3 {
+      font-size: 1.5em;
+    }
+    .text p {
+      margin-right: 150px;
+    }
+    .text h4 {
+      font-size: 2.5rem;
+    }
+  }
+`;

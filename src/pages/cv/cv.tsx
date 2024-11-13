@@ -1,13 +1,13 @@
 import "../../App.css";
 import { useContext } from "react";
-import { MenuContext } from "../../App";
+
 import styled from "styled-components";
 
 const CV = () => {
-  const { menuactive } = useContext(MenuContext);
+  
 
   return (
-    <CVWrapper menuactive={menuactive}>
+    <CVWrapper >
       <div className="default_container">
         <div className="background TransformRight" />
         <div className="title_button TransformRight" data-aos="fade">
@@ -30,11 +30,8 @@ const CV = () => {
 
 export default CV;
 
-const CVWrapper = styled.div<{ menuactive: boolean }>`
-  .TransformRight {
-    transform: translateX(${(props) => (props.menuactive ? `300px` : "0")});
-    transition: 0.3s ease;
-  }
+const CVWrapper = styled.div`
+
 
   .title_button {
     position: relative;

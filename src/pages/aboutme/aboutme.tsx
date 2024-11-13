@@ -1,7 +1,5 @@
 import "../../App.css";
 import styled from "styled-components";
-import { useContext } from "react";
-import { MenuContext } from "../../App";
 import { AppCodeExperience } from "../../components/common/app-code-experience";
 import JobContainer from "./job-container";
 import {
@@ -20,10 +18,10 @@ import {
 import ToTopBtn from "../../components/common/to-top-btn";
 
 const AboutMe = () => {
-  const { menuactive } = useContext(MenuContext);
+  
 
   return (
-    <AboutmeWrapper menuactive={menuactive}>
+    <AboutmeWrapper>
       <div className="background TransformRight" />
       <div className="button_placement TransformRight">
         <ToTopBtn />
@@ -88,11 +86,8 @@ const AboutMe = () => {
 
 export default AboutMe;
 
-const AboutmeWrapper = styled.div<{ menuactive: boolean }>`
-  .TransformRight {
-    transform: translateX(${(props) => (props.menuactive ? `300px` : "0")});
-    transition: 0.3s ease;
-  }
+const AboutmeWrapper = styled.div`
+
 
   .button_placement {
     position: fixed;
