@@ -12,7 +12,47 @@
   --default-shadow: 5px 10px 8px rgba(0, 0, 0, 0.3);
   --website_blue: #0ef;
   --z-modal: 99999;
+  --mobile-width: 480px;
 }
+
+/* ============= Commonly used ========= */
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.stop_x_scolling {
+  overflow-x: hidden;
+}
+
+.default_container {
+  position: absolute;
+  right: 0;
+  width: 100%;
+  min-height: 100vh;
+  padding: 5%;
+  margin-top: 60px;
+  align-items: center;
+  transition: var(--default-transition);
+  z-index: 2;
+  overflow-x: hidden;
+}
+
+.default-borders {
+  position: absolute;
+  /* top right&left bottom */
+  padding: 100px 150px 0;
+  width: 100%;
+  height: 100vh;
+  }
+  
+  @media screen and (max-width: var(--mobile-width)) {
+    .default-borders {
+      padding: 100px 16px 0;
+    }
+  }
 
 /*========= APPLY TO ALL =========*/
 *{
@@ -89,32 +129,6 @@
 .shimmer:hover:before, shimmer:hover:after {
 opacity: 0.6;
 transform: translateX(520px) skewX(-45deg);
-}
-
-
-/* ============= Commonly used ========= */
-
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.stop_x_scolling {
-  overflow-x: hidden;
-}
-
-.default_container {
-  position: absolute;
-  right: 0;
-  width: 100%;
-  min-height: 100vh;
-  padding: 5%;
-  margin-top: 60px;
-  align-items: center;
-  transition: var(--default-transition);
-  z-index: 2;
-  overflow-x: hidden;
 }
 
 /* Animate Background*/

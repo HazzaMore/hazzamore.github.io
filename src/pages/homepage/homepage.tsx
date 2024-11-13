@@ -3,14 +3,63 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useContext } from "react";
 
-import { BsLinkedin, BsYoutube, BsInstagram, BsTwitterX } from "react-icons/bs";
+import {
+  BsLinkedin,
+  BsYoutube,
+  BsInstagram,
+  BsTwitterX,
+  BsArrowRight,
+} from "react-icons/bs";
+import { IoIosMail } from "react-icons/io";
 import { background_video } from "../../components/videos/videoslist";
 
-const Homepage = () => {
-  
+import { FlipWords } from "./flip-words";
 
+const SOCIALS = [
+  {
+    id: 0,
+    name: "Youtube",
+    href: "//www.youtube.com/@HazzaMore/",
+    icon: <BsYoutube size={30} />,
+  },
+  {
+    id: 1,
+    name: "LinkedIn",
+    href: "//www.linkedin.com/in/harrymooremeng/",
+    icon: <BsLinkedin size={30} />,
+  },
+  {
+    id: 2,
+    name: "Twitter",
+    href: "//x.com/HazzaMoreEdits/",
+    icon: <BsTwitterX size={30} />,
+  },
+  {
+    id: 3,
+    name: "Instagram",
+    href: "//www.instagram.com/harrymooreuk/",
+    icon: <BsInstagram size={30} />,
+  },
+  {
+    id: 4,
+    name: "Email",
+    href: "//Harry.Moore.MEng@gmail.com/",
+    icon: <IoIosMail size={30} />,
+  },
+];
+
+const Roles = [
+  "a Cloud Engineer",
+  "a Front End Developer",
+  "a Back End Developer",
+  "a Video Editor",
+  "a Graphic Designer",
+  "an Engineer",
+];
+
+const Homepage = () => {
   return (
-    <HomepageWrapper >
+    <HomepageWrapper>
       <div className="background-overlay" />
       <video
         className="BackgroundVideo "
@@ -21,56 +70,81 @@ const Homepage = () => {
         autoPlay
       />
 
-      <div className="">
-        <section className="text" data-aos="fade">
-          <h2>
-            Where Cloud <br /> Development{" "}
-          </h2>
-          <h3 data-aos="fade" data-aos-delay="1000">
-            Meets Creativity
-          </h3>
-          <p
-            className="index_paragraph"
-            data-aos="fade"
-            data-aos-delay="2400"
-            data-aos-anchor="text"
-          >
-            Discover how Harry can empower your company
-          </p>
-          <a
-            href="/about-me"
-            data-aos="fade"
-            data-aos-delay="2400"
-            data-aos-anchor="index_paragraph"
-          >
-            See More
-          </a>
-        </section>
+      <div className="default-borders">
+        <div className="full-container">
+          <div className="main-container">
+            <div className="text-container">
+              <div className="title-container">
+                <h1 className="title">Creating Code Solutions</h1>
+                <h2 className="secondary-title">
+                  With an Appreciation for Good Design
+                </h2>
+              </div>
+              <div className="introduction-container">
+                <p>
+                  Hi, I am Harry Moore,
+                  <FlipWords words={Roles} />
+                  from the UK
+                  <br />
+                  Click below to find out more about me and my work
+                </p>
+                <Link className="button-to-aboutme" to={"/"}>
+                  Dive In <BsArrowRight />
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="footer-container">
+            <h1 className="footer-text">
+              Want to get in contact? Find me on my socials:
+            </h1>
+            <ul className="social">
+              {SOCIALS.map((social) => (
+                <li key={social.id}>
+                  <Link to={social.href}>{social.icon}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* <div className="main-container">
+          <div className="text-container">
+            <div className="text-container-main">
+              <h1 className="title">Creating Code Solutions</h1>
+              <h2 className="secondary-title">
+                With an Appreciation for Good Design
+              </h2>
+              <div className="introduction">
+                <p>
+                  Hi, I am Harry Moore,
+                  <FlipWords words={Roles} />
+                  from the UK
+                  <br />
+                  Click below to find out more about me and my work
+                </p>
+                <Link className="button-to-aboutme" to={"/"}>
+                  Dive In <BsArrowRight />
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="bottom-container">
+            <div className="footer">
+              <h1 className="footer-text">
+                Want to get in contact? Find me on my socials:
+              </h1>
+              <ul className="social">
+                {SOCIALS.map((social) => (
+                  <li key={social.id} className="social_icon">
+                    <Link to={social.href}>{social.icon}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div> */}
       </div>
-      <footer>
-        <ul className="social ">
-          <li className="social_icon">
-            <Link to="//www.youtube.com/@HazzaMore">
-              <BsYoutube size={70} />
-            </Link>
-          </li>
-          <li className="social_icon">
-            <Link to="//www.linkedin.com/in/harrymooremeng/">
-              <BsLinkedin size={60} />
-            </Link>
-          </li>
-          <li className="social_icon">
-            <Link to="//x.com/HazzaMoreEdits">
-              <BsTwitterX size={60} />
-            </Link>
-          </li>
-          <li className="social_icon">
-            <Link to="//www.instagram.com/harrymooreuk/">
-              <BsInstagram size={60} />
-            </Link>
-          </li>
-        </ul>
-      </footer>
     </HomepageWrapper>
   );
 };
@@ -78,7 +152,6 @@ const Homepage = () => {
 export default Homepage;
 
 const HomepageWrapper = styled.div`
-
   .BackgroundVideo {
     position: absolute;
     top: 0;
@@ -100,106 +173,114 @@ const HomepageWrapper = styled.div`
     background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
   }
 
-  .showcase {
-    padding: 10%;
-    justify-content: space-between;
+  .full-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
 
-  .text {
-    vertical-align: middle;
-    z-index: 10;
-    transition: var(--default-transition);
-    padding-top: 30vh;
-    padding-left: 10%;
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    // background: rgba(0, 300, 0, 1);
   }
 
-  .text h2 {
-    font-size: 5em;
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5%;
+    height: 150px;
+    width: 100%;
+    // background: rgba(300, 0, 0, 1);
+  }
+
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5%;
+    width: 100%;
+    // background: rgba(0, 0, 0, 1);
+  }
+
+  .title-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 300px;
+    // background: rgba(0, 0, 300, 1);
+  }
+
+  .introduction-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 40%;
+    // background: rgba(0, 0, 300, 1);
+
+    color: #fff;
+  }
+
+  .title {
+    font-size: calc(3.5vw + 3.5vh);
     font-weight: 800;
     color: #fff;
-    line-height: 1em;
-    text-transform: uppercase;
+    line-height: 1.5em;
     transition: var(--default-transition);
   }
 
-  .text h3 {
-    font-size: 3em;
+  .secondary-title {
+    font-size: calc(2vw + 2vh);
     font-weight: 700;
     color: #fff;
     line-height: 1em;
-    text-transform: uppercase;
     transition: var(--default-transition);
   }
 
-  .text p {
-    font-size: 1.1em;
+  .introduction-container p {
+    font-size: calc(0.8vw + 0.8vh);
     color: #fff;
     margin: 20px 0;
     font-weight: 400;
-    max-width: 700px;
     transition: var(--default-transition);
   }
 
-  /* See More button */
-  .text a,
-  .popup_container a {
-    display: inline-block;
-    font-size: 1em;
-    background: #fff;
-    padding: 10px 30px;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-weight: 500;
-    margin-top: 10px;
-    color: var(--BlackGrey-colour);
-    letter-spacing: 2px;
-    transition: var(--default-transition);
-  }
-  .text a:hover {
-    font-size: 1.1em;
-    background-color: var(--website_blue);
+  .footer-text {
+    color: #fff;
+    align-self: center;
   }
 
   .social {
-    position: absolute;
-    left: 10%;
-    z-index: 10;
-    bottom: 20px;
     display: flex;
     justify-content: center;
+    gap: 20px;
     align-items: center;
-    scale: 120%;
-  }
-  .social li {
-    list-style: none;
-  }
-  .social li a {
-    display: inline-block;
-    margin-right: 5px;
     filter: brightness(0) invert(1);
-    transform: scale(0.3);
-    transition: var(--default-transition);
-  }
-  .social li a:hover {
-    transform: scale(0.5) translateY(-15px);
   }
 
-  @media screen and (max-width: 900px) {
-    .showcase,
-    .showcase header {
-      padding: 30px;
-    }
-    .text h2 {
-      font-size: 2.8em;
-    }
-    .text h3 {
-      font-size: 1.5em;
-    }
-    .text p {
-      margin-right: 150px;
-    }
-    .text h4 {
-      font-size: 2.5rem;
-    }
-  }
+
+  // @media screen and (max-width: 900px) {
+  //   .showcase,
+  //   .showcase header {
+  //     padding: 30px;
+  //   }
+  //   .text h2 {
+  //     font-size: 2.8em;
+  //   }
+  //   .text h3 {
+  //     font-size: 1.5em;
+  //   }
+  //   .text p {
+  //     margin-right: 150px;
+  //   }
+  //   .text h4 {
+  //     font-size: 2.5rem;
+  //   }
+  // }
 `;
